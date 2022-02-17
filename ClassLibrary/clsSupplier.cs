@@ -7,20 +7,15 @@ namespace ClassLibrary
         // SupplierID
         public DateTime DateAdded { get; set; }
 
-        // OrderDate
+        // SupplierDateAdded
         public int SupplierID { get; set; }
 
-        // ProductName
-        public string Street { get; set; }
-        
-        // ProductQuantity 
-        public int ProductQuantity { get; set; }
+        // SupplierName
+        public string SupplierName { get; set; }
+       
 
-        // Purchase
+        // Archive
         public bool Purchase { get; set; }
-
-        // Price
-        public decimal Price { get; set; }
 
     }
 }
