@@ -7,8 +7,6 @@ namespace Testing4
     [TestClass]
     public class tstSupplier
     {
-        private const double V = 1.99;
-
         [TestMethod]
         public void InsanceOK()
         {
@@ -35,7 +33,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void OrderDateOK()
+        public void SupplierDateAddedOK()
         {
             //create an instance of the class we want to create 
             clsSupplier aSupplier = new clsSupplier();
@@ -48,30 +46,18 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void ProductNameOK()
+        public void SupplierNameOK()
         {
             //create an instance of the class we want to create 
             clsSupplier aSupplier = new clsSupplier();
             //create some test data
-            string TestData = "Nike Tech Fleece Socks";
+            string TestData = "Nike";
             //assign the data to the property
-            aSupplier.Street = TestData;
+            aSupplier.SupplierName = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(aSupplier.Street, TestData);
+            Assert.AreEqual(aSupplier.SupplierName, TestData);
         }
 
-        [TestMethod]
-        public void ProductQuantityOK()
-        {
-            //create an instance of the class we want to create
-            clsSupplier aSupplier = new clsSupplier();
-            //create some test data to assign to the property
-            Int32 TestData = 20;
-            //assign the data to the property
-            aSupplier.ProductQuantity = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(aSupplier.ProductQuantity, TestData);
-        }
 
         [TestMethod]
         public void PurchaseOK()
@@ -86,18 +72,7 @@ namespace Testing4
             Assert.AreEqual(aSupplier.Purchase, TestData);
         }
 
-        [TestMethod]
-        public void PriceOK()
-        {
-            //create an instance of the class we want to create 
-            clsSupplier aSupplier = new clsSupplier();
-            //create some test data
-            decimal TestData = 1.99m;
-            //assign the data to the property
-            aSupplier.Price = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(aSupplier.Price, TestData);
-        }
+
 
        }
     }
