@@ -10,6 +10,30 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lblProductID" runat="server" Text="Product ID"></asp:Label>
+        <asp:TextBox ID="txtProductID" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblProductName" runat="server" Text="Product Name" width="68px"></asp:Label>
+            <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
+        </p>
+        <asp:CheckBox ID="chkInStock" runat="server" Text="In Stock" />
+        <p>
+            <asp:Label ID="lblProductQuantity" runat="server" Text="Product Quantity" width="68px"></asp:Label>
+            <asp:TextBox ID="txtProductQuantity" runat="server" style="margin-top: 0px"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblLastAdjustment" runat="server" Text="Last Adjustment" width="68px"></asp:Label>
+        <asp:TextBox ID="txtLastAdjustment" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblColour" runat="server" Text="Colour" width="68px"></asp:Label>
+            <asp:TextBox ID="txtColour" runat="server"></asp:TextBox>
+        </p>
+        <asp:Label ID="lblPrice" runat="server" Text="Price" width="68px"></asp:Label>
+        <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="Ok" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </form>
 </body>
 </html>
