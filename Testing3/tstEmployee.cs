@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using classLibrary;
 using ClassLibrary;
 
 namespace Testing3
@@ -43,9 +42,9 @@ namespace Testing3
             //create some test data
             string TestData = "Joe Bloggs";
             //assign the data to the property
-            anEmployee.EmployeeDateAdded = TestData;
+            anEmployee.EmployeeName = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(anEmployee.EmployeeDateAdded, TestData);
+            Assert.AreEqual(anEmployee.EmployeeName, TestData);
         }
 
         [TestMethod]

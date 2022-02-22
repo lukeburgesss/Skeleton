@@ -14,8 +14,8 @@
         <asp:Label ID="lblEmployeeNo" runat="server" Text="Employee Number" width="124px"></asp:Label>
         <asp:TextBox ID="txtEmployeeNo" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="lblEmployeeDateAdded" runat="server" Text="Date Added" width="124px"></asp:Label>
-            <asp:TextBox ID="txtEmployeeDateAdded" runat="server"></asp:TextBox>
+            <asp:Label ID="lblEmployeeName" runat="server" Text="Name" width="124px"></asp:Label>
+            <asp:TextBox ID="txtEmployeeName" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblDOB" runat="server" Text="Date Of Birth" width="124px"></asp:Label>
@@ -23,7 +23,7 @@
         </p>
         <p>
             <asp:Label ID="lblHouseAddress" runat="server" Text="House Address" width="124px"></asp:Label>
-            <asp:TextBox ID="txtHouseAddress" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtHouseAddress" runat="server" OnTextChanged="txtHouseAddress_TextChanged"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblsalary" runat="server" Text="Salary" width="124px"></asp:Label>
