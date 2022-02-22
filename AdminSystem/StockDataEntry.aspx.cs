@@ -21,10 +21,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //theStock.ProductID = txtProductID;
         //capture the Product Name
         theStock.ProductName = txtProductName.Text;
-        //captures the Last Adjustment
-        //theStock.LastAdjustment = txtLastAdjustment.Text;
+        //captures the InStock boolean
+        //theStock.InStock = chkInStock;
+        //captures the Product Quantity
+        //theStock.ProductQuantity = txtProductQuantity;
+       //captures the Last Adjustment
+        //theStock.LastAdjustment = txtLastAdjustment;
         //captures the Colour
         theStock.Colour = txtColour.Text;
+        //captures the Price
+        //theStock.Price = txtPrice;
         //store the ID in the session object
         Session["theStock"] = theStock;
         //navigate to the viewer page

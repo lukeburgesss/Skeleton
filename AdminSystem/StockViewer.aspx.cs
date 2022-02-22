@@ -16,9 +16,17 @@ public partial class _1Viewer : System.Web.UI.Page
         theStock = (clsStock)Session["theStock"];
         //display the ProductID for this entry
         Response.Write(theStock.ProductID);
-        //display the Product name for this entry
+        //display the Product Name for this entry
         Response.Write(theStock.ProductName);
+        //display the InStock for this entry
+        Response.Write(theStock.InStock);
+        //display the Product Quantity for this entry
+        Response.Write(theStock.ProductQuantity);
+        //display the Last Adjustment for this entry
+        Response.Write(theStock.LastAdjustment);
         //display the Colour for this entry
         Response.Write(theStock.Colour);
+        //display the Price for this entry
+        Response.Write(theStock.Price);
     }
 }
