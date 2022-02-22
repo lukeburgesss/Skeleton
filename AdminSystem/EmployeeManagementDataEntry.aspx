@@ -9,7 +9,37 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:AdRotator ID="AdRotator1" runat="server" />
         </div>
+        <asp:Label ID="lblEmployeeNo" runat="server" Text="Employee Number" width="124px"></asp:Label>
+        <asp:TextBox ID="txtEmployeeNo" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="lblEmployeeDateAdded" runat="server" Text="Date Added" width="124px"></asp:Label>
+            <asp:TextBox ID="txtEmployeeDateAdded" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblDOB" runat="server" Text="Date Of Birth" width="124px"></asp:Label>
+            <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblHouseAddress" runat="server" Text="House Address" width="124px"></asp:Label>
+            <asp:TextBox ID="txtHouseAddress" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblsalary" runat="server" Text="Salary" width="124px"></asp:Label>
+            <asp:TextBox ID="txtsalary" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblContractStatus" runat="server" Text="Contract Status"></asp:Label>
+            <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
+        </p>
+        <p>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
+        <p>
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        </p>
     </form>
 </body>
 </html>
