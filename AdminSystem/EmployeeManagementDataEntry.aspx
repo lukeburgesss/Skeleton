@@ -12,7 +12,7 @@
             <asp:AdRotator ID="AdRotator1" runat="server" />
         </div>
         <asp:Label ID="lblEmployeeNo" runat="server" Text="Employee Number" width="124px"></asp:Label>
-        <asp:TextBox ID="txtEmployeeNo" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtEmployeeNo" runat="server" OnTextChanged="txtEmployeeNo_TextChanged"></asp:TextBox>
         <p>
             <asp:Label ID="lblEmployeeName" runat="server" Text="Name" width="124px"></asp:Label>
             <asp:TextBox ID="txtEmployeeName" runat="server"></asp:TextBox>

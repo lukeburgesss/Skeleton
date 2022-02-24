@@ -17,15 +17,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //new instance cls employee
         clsEmployee AnEmployee = new clsEmployee();
-        //apture employee name
+
+        //capture employee name        
+        AnEmployee.EmployeeID = Convert.ToInt32(txtEmployeeNo.Text);
         AnEmployee.EmployeeName = txtEmployeeName.Text;
-        //store the address in the session object
+        AnEmployee.EmployeeDob = Convert.ToDateTime(txtDOB.Text);
+        AnEmployee.EmployeeHouseAddress = txtHouseAddress.Text;
+        AnEmployee.Employeesalary = Convert.ToDecimal(txtsalary.Text);
+        AnEmployee.EmployeeContractStatus = Convert.ToBoolean(chkActive.Checked);
+
+
+
+
+
+        //store the employee in the session object
         Session["AnEmployee"] = AnEmployee;
         //navicates to viewer page
         Response.Redirect("EmployeeManagementViewer.aspx");
     }
 
     protected void txtHouseAddress_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtEmployeeNo_TextChanged(object sender, EventArgs e)
     {
 
     }

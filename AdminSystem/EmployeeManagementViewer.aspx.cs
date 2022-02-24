@@ -16,6 +16,12 @@ public partial class _1Viewer : System.Web.UI.Page
         AnEmployee = (clsEmployee)Session["AnEmployee"];
         //display the home for this entry
         Response.Write(AnEmployee.EmployeeName);
+        Response.Write(AnEmployee.EmployeeID);
+        Response.Write(AnEmployee.EmployeeDob);
+        Response.Write(AnEmployee.EmployeeHouseAddress);
+        Response.Write(AnEmployee.Employeesalary);
+        Response.Write(AnEmployee.EmployeeContractStatus);
+
 
     }
 }
