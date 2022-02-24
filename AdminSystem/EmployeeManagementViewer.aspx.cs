@@ -22,6 +22,6 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AnEmployee.Employeesalary);
         Response.Write(AnEmployee.EmployeeContractStatus);
 
-
+        //test test
     }
 }

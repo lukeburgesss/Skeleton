@@ -11,5 +11,7 @@ namespace ClassLibrary
         public bool EmployeeContractStatus { get; set; }
         public string EmployeeName { get; set; }
         public DateTime EmployeeDob { get; set; }
+
+        //test test
     }
 }
