@@ -22,15 +22,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture the Product Name
         theStock.ProductName = txtProductName.Text;
         //captures the InStock boolean
-        //theStock.InStock = Convert.ToBoolean(chkInStock.Text);
+        theStock.InStock = Convert.ToBoolean(chkInStock.Checked);
         //captures the Product Quantity
-        //theStock.ProductQuantity = Convert.ToInt32(txtProductQuantity.Text);
+        theStock.ProductQuantity = Convert.ToInt32(txtProductQuantity.Text);
         //captures the Last Adjustment
-        //theStock.LastAdjustment = Convert.ToDateTime(txtLastAdjustment.Text);
+        theStock.LastAdjustment = Convert.ToDateTime(txtLastAdjustment.Text);
         //captures the Colour
         theStock.Colour = txtColour.Text;
         //captures the Price
-        //theStock.Price = Convert.ToInt32(txtPrice);
+        theStock.Price = Convert.ToDouble(txtPrice.Text);
         //store the ID in the session object
         Session["theStock"] = theStock;
         //navigate to the viewer page
