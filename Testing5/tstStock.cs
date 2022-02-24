@@ -107,5 +107,174 @@ namespace Testing5
             //test to see that the two are equal
             Assert.AreEqual(theStock.Price, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the validation
+            Boolean found = false;
+            //create some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //test to see if the result is true
+            Assert.IsTrue(found);
+        }
+
+        [TestMethod]
+        public void TestProductIDFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.ProductID != 10)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.ProductName != "Blue Sock")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestInStockFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.InStock != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductQuantityFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.ProductQuantity != 10)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestLastAdjustmentFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.LastAdjustment != Convert.ToDateTime("24/07/2000"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestColourFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.Colour != "Blue")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            //creates an instance of the class we want to create
+            clsStock theStock = new clsStock();
+            //Boolean variable to store the result of the search
+            Boolean found = false;
+            //Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //creates some test data to use with the method
+            Int32 ProductID = 10;
+            //invoke the method
+            found = theStock.Find(ProductID);
+            //check the ProductID
+            if (theStock.Price != 1.12)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }
