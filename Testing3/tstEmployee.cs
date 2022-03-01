@@ -114,5 +114,25 @@ namespace Testing3
         }
 
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //creates instance of class we want to create 
+            clsEmployee AnEmployee = new clsEmployee();
+            //boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 EmployeeID = 21;
+            //invoke the method
+            Found = AnEmployee.Find(EmployeeID);
+
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+
+
+
+        }
+
+
     }
 }
