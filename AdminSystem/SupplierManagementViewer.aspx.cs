@@ -17,7 +17,9 @@ public partial class _1Viewer : System.Web.UI.Page
         aSupplier = (clsSupplier)Session["aSupplier"];
 
         // display the supplier number on the page
-        Response.Write(aSupplier.SupplierName);
-
+        Response.Write(aSupplier.SupplierID); Console.WriteLine();
+        Response.Write(aSupplier.SupplierName); Console.WriteLine();
+        Response.Write(aSupplier.SupplierDateAdded); Console.WriteLine();
+        Response.Write(aSupplier.SupplierArchive); Console.WriteLine();
     }
 }

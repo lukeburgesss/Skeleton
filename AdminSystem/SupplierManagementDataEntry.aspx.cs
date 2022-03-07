@@ -14,8 +14,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // create a new instance of clsSupplier 
         clsSupplier aSupplier = new clsSupplier();
 
-        // capture the Supplier Number
+
+
+        // capture the Supplier Information
+        aSupplier.SupplierID = Convert.ToInt32(txtSupplierNumber.Text);
         aSupplier.SupplierName = txtSupplierName.Text;
+        aSupplier.SupplierDateAdded = Convert.ToDateTime(txtSupplierDateAdded.Text);
+        aSupplier.SupplierArchive = Convert.ToBoolean(chkArchive.Checked);
 
         // store the supplier in the session object
         Session["aSupplier"] = aSupplier;
