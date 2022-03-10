@@ -106,6 +106,34 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
+            /*
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mCustomerContactNo = Convert.ToString(DB.DataTable.Rows[0]["CustomerContactNo"]);
+                mDeliveryAddr = Convert.ToString(DB.DataTable.Rows[0]["DeliveryAddr"]);
+                mCustomerDob = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDob"]);
+                mAccountStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["AccountStatus"]);
+                //return that everything worked OK
+                return true;
+            }
+            else
+            {
+                //return false indicating a problem
+                return false;
+            */
+
+
+
             //set the private data members to the test data value
             mCustomerNo = 21;
             mCustomerName = "A Name";
