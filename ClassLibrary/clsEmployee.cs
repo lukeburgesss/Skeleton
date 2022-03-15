@@ -108,8 +108,35 @@ namespace ClassLibrary
 
         public bool Find(int employeeID)
         {
+
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search for
+            DB.AddParameter("@EmployeeID", EmployeeID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblemployee_filterByemployeeID");
+            //if one record is found there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                // copy the data from the database to the private data members
+                mEmployeeID = Convert.ToInt32(DB.DataTable.Rows[0]["EmployeeID"]);
+                mEmployeePhoneNo = Convert.ToString(DB.DataTable.Rows[0]["EmployeePhoneNo"]);
+                mEmployeeHouseAddress = Convert.ToString(DB.DataTable.Rows[0]["EmployeeHouseAddress"]);
+                mEmployeeName = Convert.ToString(DB.DataTable.Rows[0]["EmployeeName"]);
+                mEmployeesalary = Convert.ToInt32(DB.DataTable.Rows[0]["Employeesalary"]);
+                mEmployeeDob = Convert.ToDateTime(DB.DataTable.Rows[0]["EmployeeDob"]);
+                mEmployeeContractStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["EmployeeContractStatus"]);
+                //return that everything worked OK
+                return true;
+                //if no record was found
+            } else
+            { 
+                //return false indicating a problem
+                return false;
+            }
+            
             //set private data to test
-            mEmployeeID = 21;
+            /*mEmployeeID = 21;
             mEmployeeDob = Convert.ToDateTime("16/9/2015");
             mEmployeePhoneNo = "0727274";
             mEmployeeHouseAddress = "17 fake streat";
@@ -119,6 +146,7 @@ namespace ClassLibrary
 
             //always return true
             return true;
+            */
         }
     }
 }
