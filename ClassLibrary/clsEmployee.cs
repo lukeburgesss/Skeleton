@@ -12,6 +12,13 @@ namespace ClassLibrary
         private string mEmployeeName;
         private DateTime mEmployeeDob;
 
+        public string Valid(string EmployeeID,
+                            string EmployeePhoneNo,
+                            string EmployeeHouseAddress,
+                            string Employeesalary,
+                            string EmployeeContractStatus,
+                            string EmployeeName,
+                            string EmployeeDob);
 
 
         public Int32 EmployeeID
@@ -147,6 +154,11 @@ namespace ClassLibrary
             //always return true
             return true;
             */
+        }
+
+        public string Valid(object employeeID, object employeePhoneNo, object employeeHouseAddress, object employeesalary, object employeeContractStatus, object employeeName, object employeeDob)
+        {
+            return "";
         }
     }
 }
