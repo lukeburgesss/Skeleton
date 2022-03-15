@@ -18,17 +18,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder 
         clsOrder theOrder = new clsOrder();
         //capture the OrderId
-       // theOrder.OrderId = Convert.ToInt32(lblOrderId.Text);
+       theOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
         //capture the Product ID
-      //  theOrder.ProductID = Convert.ToInt32(lblProductID.Text);
+      theOrder.ProductID = Convert.ToInt32(txtProductID.Text);
         //capture the Total Product
-       // theOrder.TotalProduct = Convert.ToInt32(lblTotalProduct.Text);
+       theOrder.TotalProduct = Convert.ToInt32(txtTotalProduct.Text);
         //capture the OrderIsPaid
         theOrder.OrderIsPaid = Convert.ToBoolean(chkOrderIsPaid.Checked);
         //capture the OrderIsPaid
-      //  theOrder.OrderCreationDate = Convert.ToDateTime(lblOrderCreationDate.Text);
+       theOrder.OrderCreationDate = Convert.ToDateTime(txtOrderCreationDate.Text);
         //capture the OrderName
-       // theOrder.OrderName = textOrderName.Text;
+        theOrder.OrderName = txtOrderName.Text;
         //get the data from the session object
         Session["theOrder"] = theOrder;
         //naviget to the viewer page 
