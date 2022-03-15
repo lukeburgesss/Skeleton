@@ -126,7 +126,7 @@ namespace Testing3
             //boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
 
@@ -146,11 +146,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assum it is)
             Boolean OK = true;
             //create sum test data
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //ivoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check addrress no
-            if (AnEmployee.EmployeeID != 21)
+            if (AnEmployee.EmployeeID != 1)
             {
                 OK = false;
             }
@@ -168,11 +168,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeeName != "mark wallburg")
+            if (AnEmployee.EmployeeName != "luke B")
             {
                 OK = false;
             }
@@ -190,11 +190,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeeDob != Convert.ToDateTime("16/09/2015"))
+            if (AnEmployee.EmployeeDob != Convert.ToDateTime("15/04/2002"))
             {
                 OK = false;
             }
@@ -211,11 +211,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeePhoneNo != ("0727274"))
+            if (AnEmployee.EmployeePhoneNo != ("65456"))
             {
                 OK = false;
             }
@@ -233,11 +233,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeeHouseAddress != ("17 fake streat"))
+            if (AnEmployee.EmployeeHouseAddress != ("1 frake streat"))
             {
                 OK = false;
             }
@@ -255,11 +255,11 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.Employeesalary != Convert.ToDecimal(17000))
+            if (AnEmployee.Employeesalary != Convert.ToDecimal(100))
             {
                 OK = false;
             }
@@ -276,7 +276,7 @@ namespace Testing3
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 EmployeeID = 21;
+            Int32 EmployeeID = 1;
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property

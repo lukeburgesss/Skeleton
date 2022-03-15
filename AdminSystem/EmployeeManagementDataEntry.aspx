@@ -13,6 +13,7 @@
         </div>
         <asp:Label ID="lblEmployeeNo" runat="server" Text="Employee Number" width="124px"></asp:Label>
         <asp:TextBox ID="txtEmployeeNo" runat="server" OnTextChanged="txtEmployeeNo_TextChanged"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         <p>
             <asp:Label ID="lblEmployeeName" runat="server" Text="Name" width="124px"></asp:Label>
             <asp:TextBox ID="txtEmployeeName" runat="server"></asp:TextBox>
