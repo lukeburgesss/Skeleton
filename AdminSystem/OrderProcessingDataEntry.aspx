@@ -12,17 +12,17 @@
         <div>
         </div>
         <asp:Label ID="lblOrderId" runat="server" Text="Order Id " width="176px"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtOrderId" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
         <asp:Label ID="lblProductID" runat="server" Text="Product ID " width="176px"></asp:Label>
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtProductID" runat="server"></asp:TextBox>
         <br />
         <br />
 &nbsp;<br />
         <asp:Label ID="lblTotalProduct" runat="server" Text="Total Product " width="176px"></asp:Label>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtTotalProduct" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
@@ -30,12 +30,12 @@
         <br />
         <br />
         <asp:Label ID="lblOrderCreationDate" runat="server" Text="Order Creaction Date "></asp:Label>
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtOrderCreationDate" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
         <asp:Label ID="lblOrderName" runat="server" Text="Order Name " width="176px"></asp:Label>
-        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtOrderName" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
