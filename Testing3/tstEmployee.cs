@@ -597,11 +597,330 @@ namespace Testing3
         }
 
 
+        [TestMethod]
+        public void AddressMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string EmployeeHouseAddress = "";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMin()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeHouseAddress = "a";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeHouseAddress = "aa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeHouseAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeHouseAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string EmployeeHouseAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMid()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeHouseAddress = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
 
 
 
 
 
+
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string EmployeeName = "";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMin()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeName = "a";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void nameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeName = "aa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string EmployeeName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMid()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string EmployeeName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+
+
+
+        [TestMethod]
+        public void sallartMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string Employeesalary = '99';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SalaryMin()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Employeesalary = '100';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SalaryMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Employeesalary = "101";
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SalaryMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Employeesalary = '999999998';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SalaryMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Employeesalary = '999999999';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SalaryMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string Employeesalary = '1000000000';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void salaryMid()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Employeesalary = '500000000';
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
 
 
     }
