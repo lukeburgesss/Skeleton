@@ -12,14 +12,14 @@ namespace ClassLibrary
         private string mEmployeeName;
         private DateTime mEmployeeDob;
 
-        public string Valid(string EmployeeID,
+      /*  public string Valid(string EmployeeID,
                             string EmployeePhoneNo,
                             string EmployeeHouseAddress,
                             string Employeesalary,
                             string EmployeeContractStatus,
                             string EmployeeName,
                             string EmployeeDob);
-
+      */
 
         public Int32 EmployeeID
         {

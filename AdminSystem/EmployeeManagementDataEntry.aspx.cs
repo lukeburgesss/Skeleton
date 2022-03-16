@@ -45,10 +45,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
-
+/*
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        //create an instance of the address class
+        //create an instance of the employee class
         clsEmployee anEmployee = new clsEmployee();
         //store primary key
         Int32 EmployeeID;
@@ -70,5 +70,5 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
         }
-    }
+    } */
 }
