@@ -113,12 +113,12 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int employeeID)
+        public bool Find(int EmployeeID)
         {
 
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-            //add the parameter for the address no to search for
+            //add the parameter for the employee no to search for
             DB.AddParameter("@EmployeeID", EmployeeID);
             //execute the stored procedure
             DB.Execute("sproc_tblemployee_filterByemployeeID");
@@ -156,9 +156,10 @@ namespace ClassLibrary
             */
         }
 
-        public string Valid(object employeeID, object employeePhoneNo, object employeeHouseAddress, object employeesalary, object employeeContractStatus, object employeeName, object employeeDob)
+       /* public string Valid(object employeeID, object employeePhoneNo, object employeeHouseAddress, object employeesalary, object employeeContractStatus, object employeeName, object employeeDob)
         {
             return "";
         }
+       */
     }
 }

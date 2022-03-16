@@ -186,7 +186,7 @@ namespace Testing3
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeeName != "luke B")
+            if (AnEmployee.EmployeeName != "luke")
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing3
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeeDob != Convert.ToDateTime("15/04/2002"))
+            if (AnEmployee.EmployeeDob != Convert.ToDateTime("08/06/2002"))
             {
                 OK = false;
             }
@@ -229,7 +229,7 @@ namespace Testing3
             //invoke the method
             Found = AnEmployee.Find(EmployeeID);
             //check the property
-            if (AnEmployee.EmployeePhoneNo != ("65456"))
+            if (AnEmployee.EmployeePhoneNo != ("5641"))
             {
                 OK = false;
             }

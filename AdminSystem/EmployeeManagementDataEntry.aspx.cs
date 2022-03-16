@@ -45,30 +45,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
-/*
-    protected void btnFind_Click(object sender, EventArgs e)
-    {
-        //create an instance of the employee class
-        clsEmployee anEmployee = new clsEmployee();
-        //store primary key
-        Int32 EmployeeID;
-        //variable to store the results of the find operation
-        Boolean Found=false;
-        //get the primary key enterd bu the user
-        EmployeeID = Convert.ToInt32(txtEmployeeNo.Text);
-        //find the record
-        Found = anEmployee.Find(EmployeeID);
-        //if found
-        if (Found == true)
+    
+        protected void btnFind_Click(object sender, EventArgs e)
         {
-            txtEmployeeNo.Text = anEmployee.EmployeeID;
-            txtEmployeeName.Text = anEmployee.EmployeeName;
-            txtDOB.Text = anEmployee.EmployeeDob;
-            txtHouseAddress.Text = anEmployee.EmployeeHouseAddress;
-            txtsalary.Text = anEmployee.Employeesalary;
-            chkActive.Checked = anEmployee.EmployeeContractStatus;
+            //create an instance of the employee class
+            clsEmployee anEmployee = new clsEmployee();
+            //store primary key
+            Int32 EmployeeID;
+            //variable to store the results of the find operation
+            Boolean Found=false;
+            //get the primary key enterd bu the user
+            EmployeeID = Convert.ToInt32(txtEmployeeNo.Text);
+            //find the record
+            Found = anEmployee.Find(EmployeeID);
+            //if found
+            if (Found == true)
+            {
+                txtEmployeeNo.Text = Convert.ToString(anEmployee.EmployeeID);
+                txtEmployeeName.Text = anEmployee.EmployeeName;
+                txtDOB.Text = Convert.ToString(anEmployee.EmployeeDob);
+                txtHouseAddress.Text = anEmployee.EmployeeHouseAddress;
+                txtsalary.Text = Convert.ToString(anEmployee.Employeesalary);
+                chkActive.Checked = anEmployee.EmployeeContractStatus;
 
 
-        }
-    } */
+            }
+        } 
+
+
 }
