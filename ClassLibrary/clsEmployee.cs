@@ -156,10 +156,11 @@ namespace ClassLibrary
             */
         }
 
-       /* public string Valid(object employeeID, object employeePhoneNo, object employeeHouseAddress, object employeesalary, object employeeContractStatus, object employeeName, object employeeDob)
+        public string Valid(string employeeID, string employeeName, string employeeHouseAddress, string employeesalary, string employeePhoneNo, string employeeDob)
         {
             return "";
         }
-       */
+
+      
     }
 }

@@ -7,20 +7,18 @@ namespace Testing3
     [TestClass]
     public class tstEmployee
     {
-        [TestClass]
-        public class tstAddress
-        {
+
+        
             //good test data
             //create some testt data to pas to the module 
             string EmployeeID = "11";
             string EmployeePhoneNo = "2443";
-            //string EmployeeHouseAddress "123 fake streat";
+            string EmployeeHouseAddress = "123 fake streat";
             string Employeesalary = "100";
-            //string EmployeeContractStatus "Yes";
-            //string EmployeeName "liuui";
-            //string EmployeeDob DateTime.Now.Date.ToString();
+            string EmployeeName = "liuui";
+            string EmployeeDob = DateTime.Now.Date.ToString();
 
-        }
+        
         private const double V = 1.99;
 
         [TestMethod]
@@ -302,18 +300,18 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
 
-     /*   [TestMethod]
+       [TestMethod]
         public void ValidMethodOk()
         {
-            //create an instance of the class we want to create
+            
             clsEmployee AnEmployee = new clsEmployee();
-            //string variable to store any error message
+         
             String Error = "";
-            //invoke the method
-            Error = AnEmployee.Valid(EmployeeID, EmployeePhoneNo, EmployeeHouseAddress, Employeesalary, EmployeeContractStatus, EmployeeName, EmployeeDob);
-            //test to see that tthe result is correct
+       
+            Error = AnEmployee.Valid(EmployeeID,EmployeeName,EmployeeHouseAddress,Employeesalary, EmployeePhoneNo,EmployeeDob);
+     
             Assert.AreEqual(Error, "");
         }
-     */
+   
     }
 }
