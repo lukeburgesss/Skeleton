@@ -8,17 +8,16 @@ namespace Testing3
     public class tstEmployee
     {
 
-        
-            //good test data
-            //create some testt data to pas to the module 
-            string EmployeeID = "11";
-            string EmployeePhoneNo = "2443";
-            string EmployeeHouseAddress = "123 fake streat";
-            string Employeesalary = "100";
-            string EmployeeName = "liuui";
-            string EmployeeDob = DateTime.Now.Date.ToString();
 
-        
+        //good test data
+        //create some testt data to pas to the module 
+        string EmployeePhoneNo = "2443";
+        string EmployeeHouseAddress = "123 fake streat";
+        string Employeesalary = "100";
+        string EmployeeName = "liuui";
+        string EmployeeDob = DateTime.Now.Date.ToString();
+
+
         private const double V = 1.99;
 
         [TestMethod]
@@ -299,19 +298,311 @@ namespace Testing3
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+        /// <summary>
+        /// ///// week 24 work begins hear          ///////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
 
-       [TestMethod]
+        [TestMethod]
         public void ValidMethodOk()
         {
-            
+
             clsEmployee AnEmployee = new clsEmployee();
-         
+
             String Error = "";
-       
-            Error = AnEmployee.Valid(EmployeeID,EmployeeName,EmployeeHouseAddress,Employeesalary, EmployeePhoneNo,EmployeeDob);
-     
+
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+
             Assert.AreEqual(Error, "");
         }
-   
+
+        [TestMethod]
+        public void PhonenumberMinlessone()
+        {
+            clsEmployee AnEmployee = new clsEmployee();
+
+            String Error = "";
+
+            string EmployeePhoneNo = "";
+
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+
+            Assert.AreNotEqual(Error, "");
+
+        }
+        public void PhonenumberNoMin()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "1"; //this should be ok
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhonenumberNoMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "11"; //this should be ok
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhonenumberNoMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "111111111111111"; //this should be ok
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PhonenumberNoMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "1111111111111111"; //this should be ok
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhonenumberNoMid()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "11111111"; //this should be ok
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PhonenumberNoExtreemMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string EmployeePhoneNo = "";
+            EmployeePhoneNo = EmployeePhoneNo.PadRight(100, '1');
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobExtreemMin()
+        {
+            clsEmployee AnEmployee = new clsEmployee();
+
+            String Error = "";
+
+            DateTime TestDate;
+
+            TestDate = DateTime.Now.Date;
+
+            string EmployeeDob = TestDate.ToString();
+
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobMinAddOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-17);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddYears(-15);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobMin()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-16);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DobMaxMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-89);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-91);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DobMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-90);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DobExtreemMax()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string EmployeeDob = TestDate.ToString();
+            //invoke the method
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DobInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsEmployee AnEmployee = new clsEmployee();
+            //string variable to store any error message
+            String Error = "";
+
+            string EmployeeDob = "this is not a date";
+
+            Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
+
+
+
+
+
     }
 }

@@ -156,9 +156,30 @@ namespace ClassLibrary
             */
         }
 
-        public string Valid(string employeeID, string employeeName, string employeeHouseAddress, string employeesalary, string employeePhoneNo, string employeeDob)
+        public string Valid(string employeeName, string employeeHouseAddress, string employeesalary, string employeePhoneNo, string employeeDob)
         {
-            return "";
+            String Error = "";
+            DateTime DateTemp;
+            if (employeePhoneNo.Length == 0)
+            {
+                Error = Error + "the phone number may not be empty";
+            }
+            if (employeePhoneNo.Length > 16)
+            {
+                Error = Error + "phone number must be less than 16 digits";
+            }
+            DateTemp = Convert.ToDateTime(employeeDob);
+            if (DateTemp < DateTime.Now.AddYears(-16)) 
+            {
+                Error = Error + "The Dob canot be that early : ";   
+            }
+            if (DateTemp < DateTime.Now.AddYears(+90))
+            {
+                Error = Error + "The Dob canot be that late: ";
+            }
+
+
+                return Error;
         }
 
       
