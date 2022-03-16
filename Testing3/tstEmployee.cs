@@ -818,7 +818,7 @@ namespace Testing3
 
 
         [TestMethod]
-        public void sallartMinLessOne()
+        public void salaryMinLessOne()
         {
             //create an instance of the class we want to create
             clsEmployee AnEmployee = new clsEmployee();
@@ -833,7 +833,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void SalaryMin()
+        public void salaryMin()
         {
             //create an instance of the class we want to create
             clsEmployee AnEmployee = new clsEmployee();
