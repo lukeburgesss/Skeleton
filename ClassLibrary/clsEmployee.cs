@@ -177,9 +177,33 @@ namespace ClassLibrary
             {
                 Error = Error + "The Dob canot be that late: ";
             }
+            if (employeesalary.Length > 9)
+            {
+                Error = Error + "too high salary";
+            }
+            if (employeesalary.Length < 3)
+            {
+                Error = Error + "too low salary";
+            }
+            if (employeeName.Length < 1)
+            {
+                Error = Error + "too short name";
+            }
+            if (employeeName.Length > 49)
+            {
+                Error = Error + "too long name";
+            }
+            if (employeeHouseAddress.Length < 1)
+            {
+                Error = Error + "enter a full address";
+            }
+            if (employeeHouseAddress.Length > 49)
+            {
+                Error = Error + "address too long";
+            }
 
 
-                return Error;
+            return Error;
         }
 
       
