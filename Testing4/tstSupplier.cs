@@ -70,7 +70,7 @@ namespace Testing4
             //create some test data
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 SupplierID = 21;
+            Int32 SupplierID = 5;
             //invoke the method
             Found = aSupplier.Find(SupplierID);
             //test to see that the two values are the same 
@@ -87,11 +87,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 21;
+            Int32 SupplierID = 5;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
-            if (aSupplier.SupplierID != 21)
+            if (aSupplier.SupplierID != 5)
             {
                 OK = false;
             }
@@ -109,7 +109,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 21;
+            Int32 SupplierID = 5;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -131,7 +131,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 21;
+            Int32 SupplierID = 5;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -153,7 +153,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 21;
+            Int32 SupplierID = 5;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -169,5 +169,5 @@ namespace Testing4
 
 
     }
-    }
+   }
 
