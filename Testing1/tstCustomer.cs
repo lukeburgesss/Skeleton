@@ -95,7 +95,7 @@ namespace Testing1
             //Boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //test to see if the result is true
@@ -111,11 +111,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
-            if (ACustomer.CustomerNo != 21)
+            if (ACustomer.CustomerNo != 1)
             {
                 OK = false;
             }
@@ -132,11 +132,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
-            if (ACustomer.CustomerName != "A Name")
+            if (ACustomer.CustomerName != "Sam Smith")
             {
                 OK = false;
             }
@@ -153,11 +153,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
-            if (ACustomer.CustomerContactNo != "0123456789012345")
+            if (ACustomer.CustomerContactNo != "07555555555")
             {
                 OK = false;
             }
@@ -173,11 +173,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
-            if (ACustomer.DeliveryAddr != "Some Address")
+            if (ACustomer.DeliveryAddr != "2 Bond Street, W17 5HT")
             {
                 OK = false;
             }
@@ -193,11 +193,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
-            if (ACustomer.CustomerDob != Convert.ToDateTime("01/01/2000"))
+            if (ACustomer.CustomerDob != Convert.ToDateTime("24/03/2000"))
             {
                 OK = false;
             }
@@ -213,7 +213,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerNo);
             //check the address no
