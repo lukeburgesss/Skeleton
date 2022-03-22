@@ -59,6 +59,7 @@ namespace ClassLibrary
 
         //private date added data member
         private string aSupplierName;
+       
         //public property for date added
         public string SupplierName
         {
@@ -78,6 +79,7 @@ namespace ClassLibrary
 
         //private date added data member
         private DateTime aSupplierDateAdded;
+       
         //public property for date added
         public DateTime SupplierDateAdded
         {
@@ -130,7 +132,7 @@ namespace ClassLibrary
                 aSupplierID = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierID"]);
                 aSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
                 aSupplierDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["SupplierDateAdded"]);
-                aSupplierArchive = Convert.ToBoolean(DB.DataTable.Rows[0]["SupplierArhive"]);
+                aSupplierArchive = Convert.ToBoolean(DB.DataTable.Rows[0]["SupplierArchive"]);
                 //return that everything worked OK
                 return true;
                 //if no record was found
@@ -140,20 +142,29 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
-
-            /*
-            public bool Find(int supplierID)
-            {
-                //set the private data members to the test data value
-                aSupplierID = 21;
-                aSupplierName = "Test Name";
-                aSupplierDateAdded = Convert.ToDateTime("28/05/2002");
-                aSupplierArchive = true;
-                //always return true
-                return true;
-            */
-
         }
+
+        /*
+        public bool Find(int supplierID)
+        {
+            //set the private data members to the test data value
+            aSupplierID = 21;
+            aSupplierName = "Test Name";
+            aSupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            aSupplierArchive = true;
+            //always return true
+            return true;
+        */
+
+        // ------------------- WEEK 24 --------------------------
+
+        //public string Valid(string supplierName, string supplierDateAdded)
+        //{
+
+        //}
+
+
+        
     }
 }
 
