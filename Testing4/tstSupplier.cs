@@ -8,6 +8,7 @@ namespace Testing4
     public class tstSupplier
     {
 
+
         string SupplierName = "TestName";
         string SupplierDateAdded = DateTime.Now.Date.ToString();
 
@@ -170,6 +171,22 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
 
+        // --------------------- WEEK 24 -----------------------------------
+
+      /*  [TestMethod]
+        public void ValidMethodOK()
+        {
+
+            clsSupplier aSupplier = new clsSupplier();
+
+            String Error = "";
+
+            Error = aSupplier.Valid(SupplierName,SupplierDateAdded);
+
+            Assert.AreEqual(Error, "");
+        }
+      *?
+      */
 
         // --------------------- W E E K 2 4 ------------------------
 

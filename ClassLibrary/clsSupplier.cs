@@ -59,6 +59,7 @@ namespace ClassLibrary
 
         //private date added data member
         private string aSupplierName;
+       
         //public property for date added
         public string SupplierName
         {
@@ -78,6 +79,7 @@ namespace ClassLibrary
 
         //private date added data member
         private DateTime aSupplierDateAdded;
+       
         //public property for date added
         public DateTime SupplierDateAdded
         {
@@ -140,18 +142,20 @@ namespace ClassLibrary
                 //return false indicating a problem
                 return false;
             }
+        }
 
-            /*
-            public bool Find(int supplierID)
-            {
-                //set the private data members to the test data value
-                aSupplierID = 21;
-                aSupplierName = "Test Name";
-                aSupplierDateAdded = Convert.ToDateTime("28/05/2002");
-                aSupplierArchive = true;
-                //always return true
-                return true;
-            */
+        /*
+        public bool Find(int supplierID)
+        {
+            //set the private data members to the test data value
+            aSupplierID = 21;
+            aSupplierName = "Test Name";
+            aSupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            aSupplierArchive = true;
+            //always return true
+            return true;
+        */
+
 
             // ---------------------- W E E K 2 4 ------------------------
 
@@ -210,7 +214,6 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The date was not a valid date : ";
             }
-
         */
 
         }
