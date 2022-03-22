@@ -7,6 +7,14 @@ namespace Testing4
     [TestClass]
     public class tstSupplier
     {
+
+
+        //good test data
+        //create some testt data to pas to the module 
+        string SupplierName = "Test Name";
+        string SupplierDateAdded = DateTime.Now.Date.ToString();
+
+
         [TestMethod]
         public void InsanceOK()
         {
@@ -165,6 +173,22 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
 
+        // --------------------- WEEK 24 -----------------------------------
+
+      /*  [TestMethod]
+        public void ValidMethodOK()
+        {
+
+            clsSupplier aSupplier = new clsSupplier();
+
+            String Error = "";
+
+            Error = aSupplier.Valid(SupplierName,SupplierDateAdded);
+
+            Assert.AreEqual(Error, "");
+        }
+      *?
+      */
 
 
 
