@@ -130,7 +130,7 @@ namespace ClassLibrary
                 aSupplierID = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierID"]);
                 aSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
                 aSupplierDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["SupplierDateAdded"]);
-                aSupplierArchive = Convert.ToBoolean(DB.DataTable.Rows[0]["SupplierArhive"]);
+                aSupplierArchive = Convert.ToBoolean(DB.DataTable.Rows[0]["SupplierArchive"]);
                 //return that everything worked OK
                 return true;
                 //if no record was found
@@ -152,6 +152,66 @@ namespace ClassLibrary
                 //always return true
                 return true;
             */
+
+            // ---------------------- W E E K 2 4 ------------------------
+
+            
+        }
+
+        public string Valid(string supplierName, string supplierDateAdded)
+        {
+            String Error = "";
+            DateTime DateTemp;
+
+            //DateTime DateTemp;
+
+            if (supplierName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Name may not be blank : ";
+            }
+            //if the street is too long
+            if (supplierName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Name must be less than 50 characters : ";
+            }
+
+            DateTemp = Convert.ToDateTime(supplierDateAdded);
+            if (DateTemp < DateTime.Now.AddYears(-10))
+            {
+                Error = Error + "The Dob canot be that early : ";
+            }
+            if (DateTemp < DateTime.Now.AddYears(+10))
+            {
+                Error = Error + "The Dob canot be that late: ";
+            }
+            return Error;
+
+
+        /*  try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(supplierDateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+        */
 
         }
     }
