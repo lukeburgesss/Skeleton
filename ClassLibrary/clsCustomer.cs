@@ -132,5 +132,69 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string customerName, string customerContactNo, string deliveryAddr, string customerDob)
+        {
+            //create a string varaible to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the CustomerName is blank
+            if (customerName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer name may not be blank : ";
+            }
+            //if the CustomerName is greater than 50 characters
+            if (customerName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The customer name must be less than 50 characters : ";
+            }
+            if (customerContactNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The customer contact no may not be blank : ";
+            }
+            if (customerContactNo.Length > 16)
+            {
+                //record the error
+                Error = Error + "The customer contact no must be less than 16 characters : ";
+            }
+            if (deliveryAddr.Length == 0)
+            {
+                //record the error
+                Error = Error + "The delivery address may not be blank : ";
+            }
+            if (deliveryAddr.Length > 100)
+            {
+                //record the error
+                Error = Error + "The delivery address must be less than 100 characters : ";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(customerDob);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date canot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //return any error message
+            return Error;
+        }
     }
 }
