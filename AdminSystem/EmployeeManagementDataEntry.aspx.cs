@@ -18,22 +18,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //new instance cls employee
         clsEmployee AnEmployee = new clsEmployee();
 
-        //capture employee name        
-        AnEmployee.EmployeeID = Convert.ToInt32(txtEmployeeNo.Text);
-        AnEmployee.EmployeeName = txtEmployeeName.Text;
-        AnEmployee.EmployeeDob = Convert.ToDateTime(txtDOB.Text);
-        AnEmployee.EmployeeHouseAddress = txtHouseAddress.Text;
-        AnEmployee.Employeesalary = Convert.ToInt32(txtsalary.Text);
-        AnEmployee.EmployeeContractStatus = Convert.ToBoolean(chkActive.Checked);
+        //capture employee ID       
+        string EmployeeID = txtEmployeeNo.Text;
+        //capture employee name
+        string EmployeeName = txtEmployeeName.Text;
+        //capture employee Dob
+        string EmployeeDob = txtDOB.Text;
+        //capture employee Address
+        string EmployeeHouseAddress = txtHouseAddress.Text;
+        //capture employee Salary
+        string Employeesalary = txtsalary.Text;
+        //capture employee Contract status
+        string EmployeeContractStatus = Convert.ToBoolean(chkActive.Checked);
 
+        string Error = "";
+        Error = AnEmployee.Valid(EmployeeID, EmployeeName, EmployeeDob, EmployeeHouseAddress, Employeesalary);
+        if (Error == "")
+        {
+            AnEmployee.EmployeeID = Convert.ToInt32(EmployeeID);
+            AnEmployee.EmployeeName = EmployeeName;
+            AnEmployee.EmployeeDob = Convert.ToDateTime(EmployeeDob);
+            AnEmployee.EmployeeHouseAddress = EmployeeHouseAddress;
+            AnEmployee.Employeesalary = Convert.ToInt32(Employeesalary);
+            AnEmployee.EmployeeContractStatus = Convert.ToBoolean(chkActive.Checked);
+            //store the employee in the session object
+            Session["AnEmployee"] = AnEmployee;
+            //navicates to viewer page
+            Response.Redirect("EmployeeManagementViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
 
-        //test test
-
-
-        //store the employee in the session object
-        Session["AnEmployee"] = AnEmployee;
-        //navicates to viewer page
-        Response.Redirect("EmployeeManagementViewer.aspx");
     }
 
     protected void txtHouseAddress_TextChanged(object sender, EventArgs e)
