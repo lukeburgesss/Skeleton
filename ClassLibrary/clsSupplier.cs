@@ -156,15 +156,67 @@ namespace ClassLibrary
             return true;
         */
 
-        // ------------------- WEEK 24 --------------------------
 
-        //public string Valid(string supplierName, string supplierDateAdded)
-        //{
+            // ---------------------- W E E K 2 4 ------------------------
 
-        //}
+            
+        }
+
+        public string Valid(string supplierName, string supplierDateAdded)
+        {
+            String Error = "";
+            DateTime DateTemp;
+
+            //DateTime DateTemp;
+
+            if (supplierName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Name may not be blank : ";
+            }
+            //if the street is too long
+            if (supplierName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Name must be less than 50 characters : ";
+            }
+
+            DateTemp = Convert.ToDateTime(supplierDateAdded);
+            if (DateTemp < DateTime.Now.AddYears(-10))
+            {
+                Error = Error + "The Dob canot be that early : ";
+            }
+            if (DateTemp < DateTime.Now.AddYears(+10))
+            {
+                Error = Error + "The Dob canot be that late: ";
+            }
+            return Error;
 
 
-        
+        /*  try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(supplierDateAdded);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+        */
+
+        }
     }
 }
 

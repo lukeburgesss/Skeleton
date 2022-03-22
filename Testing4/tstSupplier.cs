@@ -9,9 +9,7 @@ namespace Testing4
     {
 
 
-        //good test data
-        //create some testt data to pas to the module 
-        string SupplierName = "Test Name";
+        string SupplierName = "TestName";
         string SupplierDateAdded = DateTime.Now.Date.ToString();
 
 
@@ -190,8 +188,254 @@ namespace Testing4
       *?
       */
 
+        // --------------------- W E E K 2 4 ------------------------
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsSupplier aSupplier = new clsSupplier();
+            String Error = "";
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "";
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "a";
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "aa";
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "";
+            //invoke the method
+            SupplierName = SupplierName.PadRight(49, 'a');
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMax()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "";
+            //invoke the method
+            SupplierName = SupplierName.PadRight(50, 'a');
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "";
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NameMid()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string SupplierName = "";
+            //invoke the method
+            SupplierName = SupplierName.PadRight(25, 'a');
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
 
 
-    }
-   }
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-10);
+            //convert the date variable to a string variable
+            string SupplierDateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddDays(-1);
+            //convert the date variable to a string variable
+            string SupplierDateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string SupplierDateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            string SupplierDateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date totodays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(+10);
+            //convert the date variable to a string variable
+            string SupplierDateAdded = TestDate.ToString();
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsSupplier aSupplier = new clsSupplier();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            //convert the date variable to a string variable
+            string SupplierDateAdded = "This is not a Date";
+            //invoke the method
+            Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+
+
+
+
+
+
+
+        }
+}
 
