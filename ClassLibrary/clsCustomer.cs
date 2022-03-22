@@ -106,7 +106,7 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
-            /*
+            
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the address no to search for
@@ -130,19 +130,7 @@ namespace ClassLibrary
             {
                 //return false indicating a problem
                 return false;
-            */
-
-
-
-            //set the private data members to the test data value
-            mCustomerNo = 21;
-            mCustomerName = "A Name";
-            mCustomerContactNo = "0123456789012345";
-            mDeliveryAddr = "Some Address";
-            mCustomerDob = Convert.ToDateTime("01/01/2000");
-            mAccountStatus = true;
-            //always return true
-            return true;
+            }
         }
     }
 }
