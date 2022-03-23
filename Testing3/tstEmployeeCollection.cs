@@ -85,8 +85,158 @@ namespace Testing3
 
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsEmployeeCollection allEmployees = new clsEmployeeCollection();
+
+            clsEmployee TestItem = new clsEmployee();
+
+            Int32 Primarykey = 0
+
+            TestItem.EmployeeID = 1;
+            TestItem.EmployeeName = "luke";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
+            TestItem.EmployeeHouseAddress = "19 coldstream close";
+            TestItem.Employeesalary = 180;
+            TestItem.EmployeeContractStatus = true;
+
+            allEmployees.ThisEmployee = TestItem;
+
+            Primarykey = allEmployees.Add();
+
+            TestItem.EmployeeID = Primarykey;
+
+            allEmployees.ThisEmployee.Find(Primarykey);
+
+            Assert.AreEqual(allEmployees.ThisEmployee, TestItem);
+
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsEmployeeCollection allEmployees = new clsEmployeeCollection();
+
+            clsEmployee TestItem = new clsEmployee();
+
+            Int32 Primarykey = 0
 
 
+
+            TestItem.EmployeeID = 1;
+            TestItem.EmployeeName = "luke";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
+            TestItem.EmployeeHouseAddress = "19 coldstream close";
+            TestItem.Employeesalary = 180;
+            TestItem.EmployeeContractStatus = true;
+
+            allEmployees.ThisEmployee = TestItem;
+
+            Primarykey = allEmployees.Add();
+
+            TestItem.EmployeeID = Primarykey;
+
+            TestItem.EmployeeID = 7;
+            TestItem.EmployeeName = "Dog";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2000");
+            TestItem.EmployeeHouseAddress = "20 coldstream close";
+            TestItem.Employeesalary = 170;
+            TestItem.EmployeeContractStatus = false;
+
+            allEmployees.ThisEmployee = TestItem;
+
+            allEmployees.Update();
+
+            allEmployees.ThisEmployee.Find(Primarykey);
+
+            Assert.Areequal(allEmployees.ThisEmployee, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsEmployeeCollection allEmployees = new clsEmployeeCollection();
+
+            clsEmployee TestItem = new clsEmployee();
+
+            Int32 Primarykey = 0
+
+            TestItem.EmployeeID = 1;
+            TestItem.EmployeeName = "luke";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
+            TestItem.EmployeeHouseAddress = "19 coldstream close";
+            TestItem.Employeesalary = 180;
+            TestItem.EmployeeContractStatus = true;
+
+            allEmployees.ThisEmployee = TestItem;
+
+            Primarykey = allEmployees.Add();
+
+            TestItem.EmployeeID = Primarykey;
+
+            allEmployees.ThisEmployee.Find(Primarykey);
+
+            allEmployees.Delete();
+
+            Boolean Found = allEmployees.ThisEmployee.Find(Primarykey);
+
+            Assert.IsFalse(Found);
+
+        }
+
+
+        [TestMethod]
+        public void reportbynameMethodOK()
+        {
+            clsEmployeeCollection allEmployees = new clsEmployeeCollection();
+
+            clsEmployeeCollection FilteredEmployees = new clsEmployeeCollection();
+
+            FilteredEmployees.ReportByName("");
+
+            Assert.AreEqual(allEmployees.Count, FilteredAddresses.Count);
+
+        }
+
+        [TestMethod]
+        public void reportbynamenonefound()
+        { 
+            clsEmployeecollection FilteredEmployees = new clsEmployeeCollection();
+
+            FilteredEmployees.ReportByName("xxxx")
+
+
+        }
+
+
+
+        [TestMethod]
+        public void reportbynameTestDatafound()
+        {
+            clsEmployeecollection FilteredEmployees = new clsEmployeeCollection();
+
+            Boolean OK = true;
+
+            FilteredEmployees.ReportByName("luke luke")
+
+                if (FilteredEmployees.Count == 2)
+                {
+                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 8)
+                    {
+                    OK = false;
+                    }
+                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 9)
+                    {
+                    OK = false;
+                    }
+                }
+                else 
+                {
+                OK = false;
+                }
+            Assert.IsTrue(OK);
+        }
 
 
     }
