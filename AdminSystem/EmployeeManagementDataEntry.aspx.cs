@@ -8,9 +8,18 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 EmployeeID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        EmployeeID = Convert.ToInt32(Session["EmpoloyeeID"]);
+        if (IsPostBack == false)
+        {
+            if (EmployeeID != -1)
+            {
+                DisplayEmployees();
 
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -18,22 +27,55 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //new instance cls employee
         clsEmployee AnEmployee = new clsEmployee();
 
-        //capture employee name        
-        AnEmployee.EmployeeID = Convert.ToInt32(txtEmployeeNo.Text);
-        AnEmployee.EmployeeName = txtEmployeeName.Text;
-        AnEmployee.EmployeeDob = Convert.ToDateTime(txtDOB.Text);
-        AnEmployee.EmployeeHouseAddress = txtHouseAddress.Text;
-        AnEmployee.Employeesalary = Convert.ToInt32(txtsalary.Text);
-        AnEmployee.EmployeeContractStatus = Convert.ToBoolean(chkActive.Checked);
+        //capture employee ID       
+        string EmployeeID = txtEmployeeNo.Text;
+        //capture employee name
+        string EmployeeName = txtEmployeeName.Text;
+        //capture employee Dob
+        string EmployeeDob = txtDOB.Text;
+        //capture employee Address
+        string EmployeeHouseAddress = txtHouseAddress.Text;
+        //capture employee Salary
+        string Employeesalary = txtsalary.Text;
 
 
-        //test test
+        string Error="";
+        Error = AnEmployee.Valid(EmployeeID, EmployeeName, EmployeeDob, EmployeeHouseAddress, Employeesalary);
+        if (Error == "")
+        {
+            AnEmployee.EmployeeID =Convert.ToInt32(EmployeeID);
+            AnEmployee.EmployeeName = EmployeeName;
+            AnEmployee.EmployeeDob =Convert.ToDateTime(EmployeeDob);
+            AnEmployee.EmployeeHouseAddress = EmployeeHouseAddress;
+            AnEmployee.Employeesalary =Convert.ToInt32(Employeesalary);
+            AnEmployee.EmployeeContractStatus =Convert.ToBoolean(chkActive.Checked);
 
+            clsEmployeeCollection EmployeeList = new clsEmployeeCollection();
 
-        //store the employee in the session object
-        Session["AnEmployee"] = AnEmployee;
-        //navicates to viewer page
-        Response.Redirect("EmployeeManagementViewer.aspx");
+            if (EmployeeID == -1)
+            {
+                EmployeeList.ThisEmployee = AnEmployee;
+                EmployeeList.Add();
+
+            }
+
+            else 
+            {
+                EmployeeList.ThisEmployee.Find(EmployeeID);
+
+                EmployeeList.ThisEmployee = AnEmployee;
+
+                EmployeeList.Update();
+            }
+
+            //navicates to list page
+            Response.Redirect("EmployeeManagementList.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
     }
 
     protected void txtHouseAddress_TextChanged(object sender, EventArgs e)
@@ -70,7 +112,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
             }
-        } 
+        }
 
+    void DisplayEmployees()
+    {
+        clsEmployeeCollection employeebook = new clsEmployeeCollection();
+
+        employeebook.ThisEmployee.Find(EmployeeID);
+
+        txtEmployeeNo.Text = employeebook.ThisEmployee.EmployeeID.ToString();
+        txtEmployeeName.Text = employeebook.ThisEmployee.EmployeeName;
+        txtDOB.Text = employeebook.ThisEmployee.EmployeeDob.ToString();
+        txtHouseAddress.Text = employeebook.ThisEmployee.EmployeeHouseAddress;
+        txtsalary.Text = employeebook.ThisEmployee.Employeesalary.ToString();
+        chkActive.Checked = employeebook.ThisEmployee.EmployeeContractStatus;
+    }
 
 }
