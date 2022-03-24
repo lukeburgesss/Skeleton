@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div id="lblError">
             <asp:Label ID="lblSupplierNo" runat="server" Text="Supplier Number" width="129px"></asp:Label>
             &nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtSupplierNumber" runat="server"></asp:TextBox>
@@ -27,8 +27,8 @@
             <asp:CheckBox ID="chkArchive" runat="server" Text="Archive" />
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
-            [lblError]<br />
             <br />
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
             &nbsp;&nbsp;&nbsp;

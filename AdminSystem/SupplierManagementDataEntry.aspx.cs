@@ -18,15 +18,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         // capture the Supplier Information
         aSupplier.SupplierID = Convert.ToInt32(txtSupplierNumber.Text);
-        aSupplier.SupplierName = txtSupplierName.Text;
-        aSupplier.SupplierDateAdded = Convert.ToDateTime(txtSupplierDateAdded.Text);
+
+        string supplierName = txtSupplierName.Text;
+        string supplierDateAdded = txtSupplierDateAdded.Text;
+
         aSupplier.SupplierArchive = Convert.ToBoolean(chkArchive.Checked);
 
-        // store the supplier in the session object
-        Session["aSupplier"] = aSupplier;
+        string Error = "";
 
-        // navigate to the viewer page 
-        Response.Redirect("SupplierManagementViewer.aspx");
+        Error = aSupplier.Valid(supplierName, supplierDateAdded);
+        if (Error == "")
+        {
+            aSupplier.SupplierID = Convert.ToInt32(txtSupplierNumber.Text);
+            aSupplier.SupplierName = txtSupplierName.Text;
+            aSupplier.SupplierDateAdded = Convert.ToDateTime(txtSupplierDateAdded.Text);
+            aSupplier.SupplierArchive = Convert.ToBoolean(chkArchive.Checked);
+
+            // store the supplier in the session object
+            Session["aSupplier"] = aSupplier;
+
+            // navigate to the viewer page 
+            Response.Redirect("SupplierManagementViewer.aspx");
+
+        }
+        else
+        {
+            // display the error message 
+            lblError.Text = Error;
+        }
     }
-
 }
