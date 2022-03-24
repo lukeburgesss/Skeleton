@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,7 +59,7 @@ namespace ClassLibrary
 
         //private date added data member
         private string aSupplierName;
-       
+
         //public property for date added
         public string SupplierName
         {
@@ -79,7 +79,7 @@ namespace ClassLibrary
 
         //private date added data member
         private DateTime aSupplierDateAdded;
-       
+
         //public property for date added
         public DateTime SupplierDateAdded
         {
@@ -144,6 +144,7 @@ namespace ClassLibrary
             }
         }
 
+
         /*
         public bool Find(int supplierID)
         {
@@ -156,67 +157,64 @@ namespace ClassLibrary
             return true;
         */
 
+        // ------------------- WEEK 24 --------------------------
 
-            // ---------------------- W E E K 2 4 ------------------------
 
-            
-        }
-
-        public string Valid(string supplierName, string supplierDateAdded)
-        {
-            String Error = "";
-            DateTime DateTemp;
-
-            //DateTime DateTemp;
-
-            if (supplierName.Length == 0)
+            public string Valid(string supplierName, string supplierDateAdded)
             {
-                //record the error
-                Error = Error + "The Name may not be blank : ";
-            }
-            //if the street is too long
-            if (supplierName.Length > 50)
-            {
-                //record the error
-                Error = Error + "The Name must be less than 50 characters : ";
-            }
-
-            DateTemp = Convert.ToDateTime(supplierDateAdded);
-            if (DateTemp < DateTime.Now.AddYears(-10))
-            {
-                Error = Error + "The Dob canot be that early : ";
-            }
-            if (DateTemp < DateTime.Now.AddYears(+10))
-            {
-                Error = Error + "The Dob canot be that late: ";
-            }
-            return Error;
-
-
-        /*  try
-            {
-                //copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(supplierDateAdded);
-                if (DateTemp < DateTime.Now.Date)
+                //create a string varaible to store the error
+                String Error = "";
+                //create a temporary variable to store date values
+                DateTime DateTemp;
+                //if the CustomerName is blank
+                if (supplierName.Length == 0)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "The customer name may not be blank : ";
                 }
-                //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
+                //if the CustomerName is greater than 50 characters
+                if (supplierName.Length > 50)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future : ";
+                    Error = Error + "The customer name must be less than 50 characters : ";
                 }
-            }
-            catch
-            {
-                //record the error
-                Error = Error + "The date was not a valid date : ";
-            }
-        */
 
+                try
+                {
+                    //copy the dateAdded value to the DateTemp variable
+                    DateTemp = Convert.ToDateTime(supplierDateAdded);
+                    if (DateTemp < DateTime.Now.Date)
+                    {
+                        //record the error
+                        Error = Error + "The date cannot be in the past : ";
+                    }
+                    //check to see if the date is greater than today's date
+                    if (DateTemp > DateTime.Now.Date)
+                    {
+                        //record the error
+                        Error = Error + "The date canot be in the future : ";
+                    }
+                }
+                catch
+                {
+                    //record the error
+                    Error = Error + "The date was not a valid date : ";
+                }
+
+                //return any error message
+                return Error;
+
+
+
+            }
         }
     }
-}
+
+
+
+
+
+
+
+
 
