@@ -15,7 +15,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         theStock = (clsStock)Session["theStock"];
         //display the ProductID for this entry
-        Response.Write(theStock.ProductID);
+        Response.Write(theStock.ProductId);
         //display the Product Name for this entry
         Response.Write(theStock.ProductName);
         //display the InStock for this entry

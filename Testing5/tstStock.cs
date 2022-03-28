@@ -17,16 +17,16 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void ProductIDOK()
+        public void ProductIdOK()
         {
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //create some test data to assign to property
-            int TestData = 1;
+            Int32 TestData = 1;
             //assign the data to the property
-            theStock.ProductID = TestData;
+            theStock.ProductId = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(theStock.ProductID, TestData);
+            Assert.AreEqual(theStock.ProductId, TestData);
 
         }
 
@@ -62,7 +62,7 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //create some test data to assign the property
-            int TestData = 1;
+            Int32 TestData = 1;
             //assign the data to the property
             theStock.ProductQuantity = TestData;
             //test to see that the two are equal
@@ -114,30 +114,30 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the validation
-            Boolean found = false;
+            Boolean Found = false;
             //create some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //test to see if the result is true
-            Assert.IsTrue(found);
+            Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void TestProductIDFound()
+        public void TestProductIdFound()
         {
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
-            if (theStock.ProductID != 10)
+            if (theStock.ProductId != 10)
             {
                 OK = false;
             }
@@ -151,13 +151,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.ProductName != "Blue Sock")
             {
@@ -173,13 +173,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.InStock != true)
             {
@@ -195,13 +195,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.ProductQuantity != 10)
             {
@@ -217,13 +217,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.LastAdjustment != Convert.ToDateTime("24/07/2000"))
             {
@@ -239,13 +239,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.Colour != "Blue")
             {
@@ -261,13 +261,13 @@ namespace Testing5
             //creates an instance of the class we want to create
             clsStock theStock = new clsStock();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductID = 10;
+            Int32 ProductId = 10;
             //invoke the method
-            found = theStock.Find(ProductID);
+            Found = theStock.Find(ProductId);
             //check the ProductID
             if (theStock.Price != 1.12)
             {

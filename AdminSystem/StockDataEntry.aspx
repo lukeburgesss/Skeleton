@@ -10,8 +10,9 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="lblProductID" runat="server" Text="Product ID"></asp:Label>
-        <asp:TextBox ID="txtProductID" runat="server"></asp:TextBox>
+        <asp:Label ID="lblProductId" runat="server" Text="Product Id"></asp:Label>
+        <asp:TextBox ID="txtProductId" runat="server"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" Text="Find" />
         <p>
             <asp:Label ID="lblProductName" runat="server" Text="Product Name" width="68px"></asp:Label>
             <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
