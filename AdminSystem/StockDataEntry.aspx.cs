@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //creates  anew instance of clsStock
         clsStock theStock = new clsStock();
         //captures the ProductID
-        theStock.ProductID = Convert.ToInt32(txtProductID.Text);
+        theStock.ProductId = Convert.ToInt32(txtProductId.Text);
         //capture the Product Name
         theStock.ProductName = txtProductName.Text;
         //captures the InStock boolean
@@ -35,5 +35,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["theStock"] = theStock;
         //navigate to the viewer page
         Response.Redirect("StockViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address class
+        clsStock theStock = new clsStock();
+        //variable to store the primary key
+        Int32 ProductId;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        ProductId = Convert.ToInt32(txtProductId.Text);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtProductId.Text = Convert.ToString(theStock.ProductId);
+            txtProductName.Text = Convert.ToString(theStock.ProductName);
+            chkInStock.Text = Convert.ToString(theStock.InStock);
+            txtProductQuantity.Text = Convert.ToString(theStock.ProductQuantity);
+            txtColour.Text = Convert.ToString(theStock.Colour);
+            txtPrice.Text = Convert.ToString(theStock.Price);
+        }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
     }
 }
