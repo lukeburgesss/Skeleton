@@ -8,20 +8,6 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    Int32 SupplierID;
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        SupplierID = Convert.ToInt32(Session["SupplierID"]);
-        if (IsPostBack == false)
-        {
-            if (SupplierID != -1)
-            {
-                //DisplayESuppliers();
-
-            }
-        }
-    }
-
     protected void btnOK_Click(object sender, EventArgs e)
     {
         // create a new instance of clsSupplier 
@@ -42,69 +28,73 @@ public partial class _1_DataEntry : System.Web.UI.Page
             aSupplier.SupplierDateAdded = Convert.ToDateTime(txtSupplierDateAdded.Text);
             aSupplier.SupplierArchive = Convert.ToBoolean(chkArchive.Checked);
 
-            /* clsEmployeeCollection EmployeeList = new clsEmployeeCollection();
+            clsSupplierCollection SupplierList = new clsSupplierCollection();
+            SupplierList.ThisSupplier = aSupplier;
+            SupplierList.Add();
 
-             if (Convert.ToInt32(EmployeeID) == -1)
-             {
-                 EmployeeList.ThisEmployee = AnEmployee;
-                 EmployeeList.Add();
-
-             }
-
-             else
-             {
-                 EmployeeList.ThisEmployee.Find(Convert.ToInt32(EmployeeID));
-
-                 EmployeeList.ThisEmployee = AnEmployee;
-
-                 EmployeeList.Update();
-             }
-
-             //navicates to list page
-             Response.Redirect("EmployeeManagementList.aspx");
-         }
-         else
-         {
-             lblError.Text = Error;
-         }
-
-     } */
-
-
+            Response.Redirect("SupplierManagementList.aspx");
         }
 
-
-
-
-
-
-
-
-        /*
-        protected void btnFind_Click(object sender, EventArgs e)
+        else
         {
-            clsSupplier aSupplier = new clsSupplier();
-            Int32 SupplierID;
-            Boolean Found = false;
-            SupplierID = Convert.ToInt32(txtSupplierNumber);
-            Found = aSupplier.Find(SupplierID);
-            if (Found == true)
-            {
-                txtSupplierNumber.Text = Convert.ToString(aSupplier.SupplierID);
-
-                txtSupplierName.Text = aSupplier.SupplierName;
-
-                txtSupplierDateAdded.Text = Convert.ToString(aSupplier.SupplierDateAdded);
-
-                chkArchive.Checked = aSupplier.SupplierArchive;
-            } */
+            lblError.Text = Error;
         }
+
+    }
+    /*if (Convert.ToInt32(EmployeeID) == -1)
+    {
+        EmployeeList.ThisEmployee = AnEmployee;
+        EmployeeList.Add();
+
+    }
+
+    else
+    {
+        EmployeeList.ThisEmployee.Find(Convert.ToInt32(EmployeeID));
+
+        EmployeeList.ThisEmployee = AnEmployee;
+
+        EmployeeList.Update();
+    }
+
+    //navicates to list page
+    Response.Redirect("EmployeeManagementList.aspx");
+}
+else
+{
+    lblError.Text = Error;
+}
+
+} */
+
+
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
+        clsSupplier aSupplier = new clsSupplier();
+        Int32 SupplierID;
+        Boolean Found = false;
+        SupplierID = Convert.ToInt32(txtSupplierNumber);
+        Found = aSupplier.Find(SupplierID);
+        if (Found == true)
+        {
+            txtSupplierNumber.Text = Convert.ToString(aSupplier.SupplierID);
+            txtSupplierName.Text = aSupplier.SupplierName;
+            txtSupplierDateAdded.Text = Convert.ToString(aSupplier.SupplierDateAdded);
+            chkArchive.Checked = aSupplier.SupplierArchive;
+        }
 
     }
+
+
+
+
+
+
+
+
 }
+ 
   
 
 

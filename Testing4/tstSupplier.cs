@@ -78,7 +78,7 @@ namespace Testing4
             //create some test data
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 SupplierID = 5;
+            Int32 SupplierID = 1;
             //invoke the method
             Found = aSupplier.Find(SupplierID);
             //test to see that the two values are the same 
@@ -95,11 +95,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 5;
+            Int32 SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
-            if (aSupplier.SupplierID != 5)
+            if (aSupplier.SupplierID != 1)
             {
                 OK = false;
             }
@@ -117,11 +117,11 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 5;
+            Int32 SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
-            if (aSupplier.SupplierName != "Test Name")
+            if (aSupplier.SupplierName != "Amin")
             {
                 OK = false;
             }
@@ -139,7 +139,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 5;
+            Int32 SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -161,7 +161,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 5;
+            Int32 SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
