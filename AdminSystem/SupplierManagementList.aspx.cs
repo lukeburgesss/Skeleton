@@ -36,4 +36,11 @@ public partial class _1_List : System.Web.UI.Page
     {
 
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["SupplierID"] = -1;
+
+        Response.Redirect("SupplierManagementDataEntry.aspx");
+    }
 }

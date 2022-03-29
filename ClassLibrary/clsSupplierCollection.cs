@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ClassLibrary
 {
@@ -34,6 +35,18 @@ namespace ClassLibrary
             }
         }
 
+        public clsSupplier ThisSupplier
+        {
+            get
+            {
+                return mThisSupplier;
+            }
+            set
+            {
+                mThisSupplier = value;
+            }
+        }
+
         public clsSupplierCollection()
         {
             clsDataConnection DB = new clsDataConnection();
@@ -43,10 +56,19 @@ namespace ClassLibrary
            // PopulateArray(DB);
 
         }
+        
 
+        public int Add()
+        {
+            // add new record to db based on values of mThisSupplier
+            // set pk value of new record
+            clsDataConnection DB = new clsDataConnection();
 
+            DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
+            DB.AddParameter("@SupplierDateAdde", mThisSupplier.SupplierDateAdded);
+            DB.AddParameter("@SupplierArchive", mThisSupplier.SupplierArchive);
 
-
-        public clsSupplier ThisSupplier { get; set; }
+            return DB.Execute("sproc_tblSupplier_Insert");
+        }
     }
 }
