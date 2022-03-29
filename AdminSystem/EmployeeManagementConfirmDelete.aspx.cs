@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClassLibrary
+using ClassLibrary;
 
 public partial class _1_ConfirmDelete : System.Web.UI.Page
 {

@@ -92,7 +92,7 @@ namespace Testing3
 
             clsEmployee TestItem = new clsEmployee();
 
-            Int32 Primarykey = 0
+            Int32 Primarykey = 0;
 
             TestItem.EmployeeID = 1;
             TestItem.EmployeeName = "luke";
@@ -120,7 +120,7 @@ namespace Testing3
 
             clsEmployee TestItem = new clsEmployee();
 
-            Int32 Primarykey = 0
+            Int32 Primarykey = 0;
 
 
 
@@ -150,7 +150,7 @@ namespace Testing3
 
             allEmployees.ThisEmployee.Find(Primarykey);
 
-            Assert.Areequal(allEmployees.ThisEmployee, TestItem);
+            Assert.AreEqual(allEmployees.ThisEmployee, TestItem);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@ namespace Testing3
 
             clsEmployee TestItem = new clsEmployee();
 
-            Int32 Primarykey = 0
+            Int32 Primarykey = 0;
 
             TestItem.EmployeeID = 1;
             TestItem.EmployeeName = "luke";
@@ -195,16 +195,16 @@ namespace Testing3
 
             FilteredEmployees.ReportByName("");
 
-            Assert.AreEqual(allEmployees.Count, FilteredAddresses.Count);
+            Assert.AreEqual(allEmployees.Count, FilteredEmployees.Count);
 
         }
 
         [TestMethod]
         public void reportbynamenonefound()
-        { 
-            clsEmployeecollection FilteredEmployees = new clsEmployeeCollection();
+        {
+            clsEmployeeCollection FilteredEmployees = new clsEmployeeCollection();
 
-            FilteredEmployees.ReportByName("xxxx")
+            FilteredEmployees.ReportByName("xxxx");
 
 
         }
@@ -214,11 +214,11 @@ namespace Testing3
         [TestMethod]
         public void reportbynameTestDatafound()
         {
-            clsEmployeecollection FilteredEmployees = new clsEmployeeCollection();
+            clsEmployeeCollection FilteredEmployees = new clsEmployeeCollection();
 
             Boolean OK = true;
 
-            FilteredEmployees.ReportByName("luke luke")
+            FilteredEmployees.ReportByName("luke luke");
 
                 if (FilteredEmployees.Count == 2)
                 {

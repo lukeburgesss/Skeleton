@@ -3,35 +3,36 @@ using System;
 
 namespace ClassLibrary
 {
-    public class clsEmployeeCollection{
+    public class clsEmployeeCollection
+    {
 
-    
+
         //private data member 
         List<clsEmployee> mEmployeeList = new List<clsEmployee>();
 
         clsEmployee mThisEmployee = new clsEmployee();
 
-        public List<clsEmployee> EmployeeList 
+        public List<clsEmployee> EmployeeList
         {
-            get 
+            get
             {
                 return mEmployeeList;
-            } 
+            }
             set
             {
                 mEmployeeList = value;
             }
         }
-        public clsEmployee ThisEmployee 
+        public clsEmployee ThisEmployee
         {
-            get 
+            get
             {
                 return mThisEmployee;
             }
-            set 
+            set
             {
                 mThisEmployee = value;
-            } 
+            }
         }
         public int Count
         {
@@ -43,8 +44,8 @@ namespace ClassLibrary
             {
                 // i will worry later then
             }
-        }    
-        
+        }
+
         //constructor for the class
         public clsEmployeeCollection()
         {
@@ -68,17 +69,12 @@ namespace ClassLibrary
             DB.AddParameter("@EmployeeName", mThisEmployee.EmployeeName);
             DB.AddParameter("@EmployeeDob", mThisEmployee.EmployeeDob);
 
-
-
-
-
-
             return DB.Execute("sproc_tblEmployee_Insert");
         }
 
         public int Update()
         {
-            
+
             clsDataConnection DB = new clsDataConnection();
 
             DB.AddParameter("@EmployeeID", mThisEmployee.EmployeeID);
@@ -93,57 +89,58 @@ namespace ClassLibrary
         }
 
         public void Delete()
-        { 
-        
+        {
+
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@EmployeeID", mThisEmployee.EmployeeID);
             DB.Execute("sproc_tblEmployee_Delete");
         }
-    
-    
-    }
-
-    public void ReportByName(string EmployeeName)
-    {
-        clsDataConnection DB = new clsDataConnection();
-
-        DB.AddParameter("@EmployeeName", EmployeeName);
-
-        DB.Execute("sproc_tblEmployee_FilterByName");
-
-        PopulateArray(DB);
 
 
-    }
-
-    void PopulateArray(clsDataConnection DB)
-    {
-        Int32 Index = 0;
-
-        Int32 RecordCount = 0;        
-        
-        RecordCount = DB.Count;
-
-        mEmployeeList = new List<clsEmployee>();
 
 
-        while (Index < RecordCount)
+        public void ReportByName(string EmployeeName)
         {
-            clsEmployee AnEmployee = new clsEmployee();
+            clsDataConnection DB = new clsDataConnection();
 
-            AnEmployee.EmployeeID = Convert.ToInt32(DB.DataTable.Rows[Index]["EmployeeID"]);
-            AnEmployee.EmployeeName = Convert.ToString(DB.DataTable.Rows[Index]["EmployeeName"]);
-            AnEmployee.EmployeeDob = Convert.ToDateTime(DB.DataTable.Rows[Index]["EmployeeDob"]);
-            AnEmployee.EmployeeHouseAddress = Convert.ToString(DB.DataTable.Rows[Index]["EmployeeHouseAddress"]);
-            AnEmployee.Employeesalary = Convert.ToInt32(DB.DataTable.Rows[Index]["Employeesalary"]);
-            AnEmployee.EmployeeContractStatus = Convert.ToBoolean(DB.DataTable.Rows[Index]["EmployeeContractStatus"]);
+            DB.AddParameter("@EmployeeName", EmployeeName);
 
-            mEmployeeList.Add(AnEmployee);
+            DB.Execute("sproc_tblEmployee_FilterByName");
 
-            Index++;
+            PopulateArray(DB);
+
+
         }
 
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount = 0;
+
+            RecordCount = DB.Count;
+
+            mEmployeeList = new List<clsEmployee>();
+
+
+            while (Index < RecordCount)
+            {
+                clsEmployee AnEmployee = new clsEmployee();
+
+                AnEmployee.EmployeeID = Convert.ToInt32(DB.DataTable.Rows[Index]["EmployeeID"]);
+                AnEmployee.EmployeeName = Convert.ToString(DB.DataTable.Rows[Index]["EmployeeName"]);
+                AnEmployee.EmployeeDob = Convert.ToDateTime(DB.DataTable.Rows[Index]["EmployeeDob"]);
+                AnEmployee.EmployeeHouseAddress = Convert.ToString(DB.DataTable.Rows[Index]["EmployeeHouseAddress"]);
+                AnEmployee.Employeesalary = Convert.ToInt32(DB.DataTable.Rows[Index]["Employeesalary"]);
+                AnEmployee.EmployeeContractStatus = Convert.ToBoolean(DB.DataTable.Rows[Index]["EmployeeContractStatus"]);
+
+                mEmployeeList.Add(AnEmployee);
+
+                Index++;
+            }
+
+
+        }
 
     }
-
 }

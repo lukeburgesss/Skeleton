@@ -28,7 +28,11 @@
         </p>
         <p>
             <asp:Label ID="lblsalary" runat="server" Text="Salary" width="124px"></asp:Label>
-            <asp:TextBox ID="txtsalary" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmployeesalary" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="lblphonenumber" runat="server" Text="PhoneNo"></asp:Label>
+            <asp:TextBox ID="txtEmployeePhoneNo" runat="server" style="margin-bottom: 0px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblContractStatus" runat="server" Text="Contract Status"></asp:Label>

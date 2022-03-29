@@ -414,7 +414,7 @@ namespace Testing3
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -432,7 +432,7 @@ namespace Testing3
 
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -447,13 +447,13 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-17);
+            TestDate = TestDate.AddYears(+17);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -489,7 +489,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-16);
+            TestDate = TestDate.AddYears(+16);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -511,7 +511,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-89);
+            TestDate = TestDate.AddYears(+89);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -532,13 +532,13 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-91);
+            TestDate = TestDate.AddYears(+91);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DobMax()
@@ -552,7 +552,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-90);
+            TestDate = TestDate.AddYears(+90);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -578,7 +578,7 @@ namespace Testing3
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -779,7 +779,7 @@ namespace Testing3
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -825,7 +825,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Employeesalary = '99';
+            string Employeesalary = "99";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
@@ -840,7 +840,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Employeesalary = '100';
+            string Employeesalary = "100";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
@@ -870,7 +870,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Employeesalary = '999999998';
+            string Employeesalary = "999999998";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
@@ -885,7 +885,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Employeesalary = '999999999';
+            string Employeesalary = "999999999";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
@@ -900,7 +900,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Employeesalary = '1000000000';
+            string Employeesalary = "1000000000";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
@@ -915,7 +915,7 @@ namespace Testing3
             //string variable to store any error message
             String Error = "";
             //this should pass
-            string Employeesalary = '500000000';
+            string Employeesalary = "500000000";
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct

@@ -11,7 +11,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     Int32 EmployeeID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        EmployeeID = Convert.ToInt32(Session["EmpoloyeeID"]);
+        EmployeeID = Convert.ToInt32(Session["EmployeeID"]);
         if (IsPostBack == false)
         {
             if (EmployeeID != -1)
@@ -36,23 +36,26 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture employee Address
         string EmployeeHouseAddress = txtHouseAddress.Text;
         //capture employee Salary
-        string Employeesalary = txtsalary.Text;
+        string Employeesalary = txtEmployeesalary.Text;
+
+        string EmployeePhoneNo = txtEmployeePhoneNo.Text;
 
 
         string Error="";
-        Error = AnEmployee.Valid(EmployeeID, EmployeeName, EmployeeDob, EmployeeHouseAddress, Employeesalary);
+        Error = AnEmployee.Valid(EmployeeName,EmployeeHouseAddress,Employeesalary, EmployeePhoneNo, EmployeeDob);
         if (Error == "")
         {
-            AnEmployee.EmployeeID =Convert.ToInt32(EmployeeID);
+            AnEmployee.EmployeeID = Convert.ToInt32(EmployeeID);
             AnEmployee.EmployeeName = EmployeeName;
-            AnEmployee.EmployeeDob =Convert.ToDateTime(EmployeeDob);
+            AnEmployee.EmployeeDob = Convert.ToDateTime(EmployeeDob);
             AnEmployee.EmployeeHouseAddress = EmployeeHouseAddress;
-            AnEmployee.Employeesalary =Convert.ToInt32(Employeesalary);
+            AnEmployee.Employeesalary = Convert.ToInt32(Employeesalary);
+            AnEmployee.EmployeePhoneNo = EmployeePhoneNo;
             AnEmployee.EmployeeContractStatus =Convert.ToBoolean(chkActive.Checked);
 
             clsEmployeeCollection EmployeeList = new clsEmployeeCollection();
 
-            if (EmployeeID == -1)
+            if (Convert.ToInt32(EmployeeID) == -1)
             {
                 EmployeeList.ThisEmployee = AnEmployee;
                 EmployeeList.Add();
@@ -61,7 +64,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             else 
             {
-                EmployeeList.ThisEmployee.Find(EmployeeID);
+                EmployeeList.ThisEmployee.Find(Convert.ToInt32(EmployeeID));
 
                 EmployeeList.ThisEmployee = AnEmployee;
 
@@ -107,7 +110,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 txtEmployeeName.Text = anEmployee.EmployeeName;
                 txtDOB.Text = Convert.ToString(anEmployee.EmployeeDob);
                 txtHouseAddress.Text = anEmployee.EmployeeHouseAddress;
-                txtsalary.Text = Convert.ToString(anEmployee.Employeesalary);
+                txtEmployeePhoneNo.Text = Convert.ToString(anEmployee.EmployeePhoneNo);
+                txtEmployeesalary.Text = Convert.ToString(anEmployee.Employeesalary);
                 chkActive.Checked = anEmployee.EmployeeContractStatus;
 
 
@@ -124,7 +128,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtEmployeeName.Text = employeebook.ThisEmployee.EmployeeName;
         txtDOB.Text = employeebook.ThisEmployee.EmployeeDob.ToString();
         txtHouseAddress.Text = employeebook.ThisEmployee.EmployeeHouseAddress;
-        txtsalary.Text = employeebook.ThisEmployee.Employeesalary.ToString();
+        txtEmployeePhoneNo.Text = employeebook.ThisEmployee.Employeesalary.ToString();
         chkActive.Checked = employeebook.ThisEmployee.EmployeeContractStatus;
     }
 

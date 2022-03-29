@@ -136,7 +136,8 @@ namespace ClassLibrary
                 //return that everything worked OK
                 return true;
                 //if no record was found
-            } else
+            } 
+            else
             { 
                 //return false indicating a problem
                 return false;
@@ -169,11 +170,11 @@ namespace ClassLibrary
                 Error = Error + "phone number must be less than 16 digits";
             }
             DateTemp = Convert.ToDateTime(employeeDob);
-            if (DateTemp < DateTime.Now.AddYears(-16)) 
+            if (DateTemp < DateTime.Now.AddYears(+15)) 
             {
                 Error = Error + "The Dob canot be that early : ";   
             }
-            if (DateTemp < DateTime.Now.AddYears(+90))
+            if (DateTemp > DateTime.Now.AddYears(+90))
             {
                 Error = Error + "The Dob canot be that late: ";
             }
@@ -189,7 +190,7 @@ namespace ClassLibrary
             {
                 Error = Error + "too short name";
             }
-            if (employeeName.Length > 49)
+            if (employeeName.Length > 50)
             {
                 Error = Error + "too long name";
             }
