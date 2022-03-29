@@ -134,5 +134,53 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string productName, string lastAdjustment, string colour)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //variable to store DateTemp
+            DateTime DateTemp;
+            //if the ProductName is blank
+            if (productName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Product Name May Not Be Blank";
+            }
+
+            if (productName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Product Name May Not Be Greater Than 50 Characters";
+            }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(lastAdjustment);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The Date Cannot Be In The Past";
+                }
+            }
+            catch 
+            {
+                //record the error
+                Error = Error + "The Date Was Not A Valid Date";
+            }
+
+            if (colour.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Colour May Not Be Blank";
+            }
+
+            if (colour.Length > 50)
+            {
+                //record the error
+                Error = Error + "The Colour May Not Be Greater Than 50 Characters";
+            }
+            return Error;
+        }
     }
 }
