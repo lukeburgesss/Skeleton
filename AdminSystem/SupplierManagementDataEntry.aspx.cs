@@ -14,7 +14,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsSupplier aSupplier = new clsSupplier();
 
         // capture the Supplier Information
-        string SupplierID = txtSupplierNumber.Text;
         string SupplierName = txtSupplierName.Text;
         string SupplierDateAdded = txtSupplierDateAdded.Text;
 
@@ -23,7 +22,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = aSupplier.Valid(SupplierName, SupplierDateAdded);
         if (Error == "")
         {
-            aSupplier.SupplierID = Convert.ToInt32(txtSupplierNumber.Text);
+            
             aSupplier.SupplierName = txtSupplierName.Text;
             aSupplier.SupplierDateAdded = Convert.ToDateTime(txtSupplierDateAdded.Text);
             aSupplier.SupplierArchive = Convert.ToBoolean(chkArchive.Checked);
@@ -74,14 +73,14 @@ else
         clsSupplier aSupplier = new clsSupplier();
         Int32 SupplierID;
         Boolean Found = false;
-        SupplierID = Convert.ToInt32(txtSupplierNumber);
+        SupplierID = Convert.ToInt32(txtSupplierID.Text);
         Found = aSupplier.Find(SupplierID);
         if (Found == true)
         {
-            txtSupplierNumber.Text = Convert.ToString(aSupplier.SupplierID);
             txtSupplierName.Text = aSupplier.SupplierName;
             txtSupplierDateAdded.Text = Convert.ToString(aSupplier.SupplierDateAdded);
             chkArchive.Checked = aSupplier.SupplierArchive;
+
         }
 
     }

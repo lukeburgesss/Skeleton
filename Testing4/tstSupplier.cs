@@ -32,7 +32,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsSupplier aSupplier = new clsSupplier();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            int TestData = 1;
             //assign the data to the property
             aSupplier.SupplierID = TestData;
             //test to see that the two values are the same
@@ -78,7 +78,7 @@ namespace Testing4
             //create some test data
             Boolean Found = false;
             //create some test data to use with the method 
-            Int32 SupplierID = 1;
+            int SupplierID = 1;
             //invoke the method
             Found = aSupplier.Find(SupplierID);
             //test to see that the two values are the same 
@@ -95,7 +95,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 1;
+            int SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -117,7 +117,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 1;
+            int SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -139,7 +139,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 1;
+            int SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
@@ -161,7 +161,7 @@ namespace Testing4
             //boolean variable to record if data is OK
             Boolean OK = true;
             //create some test data to  use with the method 
-            Int32 SupplierID = 1;
+            int SupplierID = 1;
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 

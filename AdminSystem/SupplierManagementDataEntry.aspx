@@ -9,9 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div id="lblError">
-            <asp:Label ID="lblSupplierNo" runat="server" Text="Supplier Number" width="129px"></asp:Label>
+            <asp:Label ID="lblSupplierNo" runat="server" Text="Supplier ID" width="129px"></asp:Label>
             &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtSupplierNumber" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSupplierID" runat="server"></asp:TextBox>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <br />
             <br />
@@ -31,7 +31,7 @@
             <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" style="height: 26px" />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
         </div>
