@@ -38,7 +38,7 @@ namespace ClassLibrary
         //----------------------- SUPPLIER ID TEST --------------------
 
         //private data member for the SupplierID property 
-        private Int32 aSupplierID;
+        private int aSupplierID;
         //SupplierID Public Property
         public int SupplierID
         {
