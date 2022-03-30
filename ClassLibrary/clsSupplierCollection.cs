@@ -98,12 +98,24 @@ namespace ClassLibrary
             // add new record to db based on values of mThisSupplier
             // set pk value of new record
             clsDataConnection DB = new clsDataConnection();
-
+            DB.AddParameter("@SupplierID", mThisSupplier.SupplierID);
             DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
-            DB.AddParameter("@SupplierDateAdde", mThisSupplier.SupplierDateAdded);
+            DB.AddParameter("@SupplierDateAdded", mThisSupplier.SupplierDateAdded);
             DB.AddParameter("@SupplierArchive", mThisSupplier.SupplierArchive);
 
             return DB.Execute("sproc_tblSupplier_Insert");
+        }
+
+
+        public int Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierID", mThisSupplier.SupplierID);
+            DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
+            DB.AddParameter("@SupplierDateAdded", mThisSupplier.SupplierDateAdded);
+            DB.AddParameter("@SupplierArchive", mThisSupplier.SupplierArchive);
+
+            return DB.Execute("sproc_tblSupplier_Update");
         }
     }
 }
