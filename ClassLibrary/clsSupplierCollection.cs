@@ -23,18 +23,6 @@ namespace ClassLibrary
             }
         }
 
-        public int Count
-        {
-            get
-            {
-                return mSupplierList.Count;
-            }
-            set
-            {
-                //Sort out later
-            }
-        }
-
         public clsSupplier ThisSupplier
         {
             get
@@ -47,16 +35,63 @@ namespace ClassLibrary
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                return mSupplierList.Count;
+            }
+            set
+            {
+                //Sort out later
+            }
+        }
+
+        
+
         public clsSupplierCollection()
         {
             clsDataConnection DB = new clsDataConnection();
 
             DB.Execute("sproc_tblSupplier_SelectAll");
 
-           // PopulateArray(DB);
+            PopulateArray(DB);
 
         }
-        
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount = 0;
+
+            RecordCount = DB.Count;
+
+            mSupplierList = new List<clsSupplier>();
+
+
+            while (Index < RecordCount)
+            {
+                clsSupplier aSupplier = new clsSupplier();
+
+                aSupplier.SupplierID = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierID"]);
+
+
+                aSupplier.SupplierName = Convert.ToString(DB.DataTable.Rows[Index]["SupplierName"]);
+
+
+                aSupplier.SupplierDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["SupplierDateAdded"]);
+
+                aSupplier.SupplierArchive = Convert.ToBoolean(DB.DataTable.Rows[Index]["SupplierArchive"]);
+
+                mSupplierList.Add(aSupplier);
+
+                Index++;
+            }
+
+
+        }
+
 
         public int Add()
         {
