@@ -161,23 +161,36 @@ namespace ClassLibrary
         {
             String Error = "";
             DateTime DateTemp;
-            if (employeePhoneNo.Length == 0)
+            if (employeePhoneNo.Length < 1)
             {
                 Error = Error + "the phone number may not be empty";
             }
+
             if (employeePhoneNo.Length > 16)
             {
                 Error = Error + "phone number must be less than 16 digits";
             }
-            DateTemp = Convert.ToDateTime(employeeDob);
-            if (DateTemp < DateTime.Now.AddYears(+15)) 
+
+            try
             {
-                Error = Error + "The Dob canot be that early : ";   
+
+            
+                DateTemp = Convert.ToDateTime(employeeDob);
+                if (DateTemp < DateTime.Now.AddYears(+15)) 
+                {
+                    Error = Error + "The Dob canot be that early : ";   
+                }
+                 if (DateTemp > DateTime.Now.AddYears(+90))
+                 {
+                    Error = Error + "The Dob canot be that late: ";
+                 }
+            
             }
-            if (DateTemp > DateTime.Now.AddYears(+90))
+            catch
             {
-                Error = Error + "The Dob canot be that late: ";
+                Error = Error + "enter a valid date";
             }
+
             if (employeesalary.Length > 9)
             {
                 Error = Error + "too high salary";
@@ -186,21 +199,38 @@ namespace ClassLibrary
             {
                 Error = Error + "too low salary";
             }
-            if (employeeName.Length < 1)
+  
+            try
             {
-                Error = Error + "too short name";
+                if (employeeName.Length < 1)
+                {
+                    Error = Error + "too short name";
+                }
+                if (employeeName.Length > 50)
+                {
+                    Error = Error + "too long name";
+                }
             }
-            if (employeeName.Length > 50)
+            catch
             {
-                Error = Error + "too long name";
+                Error = Error + "not a valid name";
             }
-            if (employeeHouseAddress.Length < 1)
+
+
+            try
             {
-                Error = Error + "enter a full address";
+                if (employeeHouseAddress.Length < 1)
+                {
+                    Error = Error + "address too short";
+                }
+                if (employeeHouseAddress.Length > 50)
+                {
+                    Error = Error + "address too long";
+                }
             }
-            if (employeeHouseAddress.Length > 49)
+            catch
             {
-                Error = Error + "address too long";
+                Error = Error + "not a valid address";
             }
 
 

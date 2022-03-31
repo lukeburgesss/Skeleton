@@ -572,7 +572,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-100);
+            TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
