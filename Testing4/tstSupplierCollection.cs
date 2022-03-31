@@ -92,7 +92,6 @@ namespace Testing4
 
             Int32 Primarykey = 0;
 
-            TestItem.SupplierID = 1;
             TestItem.SupplierName = "Amin";
             TestItem.SupplierDateAdded = Convert.ToDateTime("28/05/2002");
             TestItem.SupplierArchive = true;
@@ -108,6 +107,38 @@ namespace Testing4
             Assert.AreEqual(AllSuppliers.ThisSupplier, TestItem);
 
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+
+            clsSupplier TestItem = new clsSupplier();
+
+            Int32 Primarykey = 0;
+
+            TestItem.SupplierName = "Amin";
+            TestItem.SupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            TestItem.SupplierArchive = true;
+
+            AllSuppliers.ThisSupplier = TestItem;
+
+            Primarykey = AllSuppliers.Add();
+
+            TestItem.SupplierID = Primarykey;
+
+            TestItem.SupplierID = 1;
+            TestItem.SupplierName = "Amin";
+            TestItem.SupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            TestItem.SupplierArchive = true;
+
+            AllSuppliers.ThisSupplier.Find(Primarykey);
+
+            Assert.AreEqual(AllSuppliers.ThisSupplier, TestItem);
+
+        }
+
+
     }
    
 }
