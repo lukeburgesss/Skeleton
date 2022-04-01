@@ -17,24 +17,42 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //creates  anew instance of clsStock
         clsStock theStock = new clsStock();
-        //captures the ProductID
-        theStock.ProductId = Convert.ToInt32(txtProductId.Text);
         //capture the Product Name
-        theStock.ProductName = txtProductName.Text;
-        //captures the InStock boolean
-        theStock.InStock = Convert.ToBoolean(chkInStock.Checked);
+        string ProductName = txtProductName.Text;
         //captures the Product Quantity
-        theStock.ProductQuantity = Convert.ToInt32(txtProductQuantity.Text);
+        string ProductQuantity = txtProductQuantity.Text;
         //captures the Last Adjustment
-        theStock.LastAdjustment = Convert.ToDateTime(txtLastAdjustment.Text);
+        string LastAdjustment = txtLastAdjustment.Text;
         //captures the Colour
-        theStock.Colour = txtColour.Text;
+        string Colour = txtColour.Text;
         //captures the Price
-        theStock.Price = Convert.ToDouble(txtPrice.Text);
-        //store the ID in the session object
-        Session["theStock"] = theStock;
-        //navigate to the viewer page
-        Response.Redirect("StockViewer.aspx");
+        string Price = txtPrice.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = theStock.Valid(ProductName, LastAdjustment, Colour);
+        if (Error == "")
+        {
+            //captures the Product Name
+            theStock.ProductName = ProductName;
+            //captures the Product Quantity
+            theStock.ProductQuantity = Convert.ToInt32(ProductQuantity);
+            //captures the Last Adjustment
+            theStock.LastAdjustment = Convert.ToDateTime(LastAdjustment);
+            //captures the Colour
+            theStock.Colour = Colour;
+            //captures the Price
+            theStock.Price = Convert.ToDouble(Price);
+            //store the information in the session object
+            Session["theStock"] = theStock;
+            //redirect to the viewer page
+            Response.Write("StockViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

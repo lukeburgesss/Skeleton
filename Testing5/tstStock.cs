@@ -9,7 +9,6 @@ namespace Testing5
     public class tstStock
     {
 
-        //good test data
         //create some test data to pass the method
         string ProductName = "Blue Sock";
         string LastAdjustment = DateTime.Now.Date.ToString();
@@ -436,7 +435,7 @@ namespace Testing5
             //invoke method
             Error = theStock.Valid(ProductName, LastAdjustment, Colour);
             //test to tee the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -457,7 +456,7 @@ namespace Testing5
             //invoke method
             Error = theStock.Valid(ProductName, LastAdjustment, Colour);
             //test to tee the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -499,7 +498,7 @@ namespace Testing5
             //invoke method
             Error = theStock.Valid(ProductName, LastAdjustment, Colour);
             //test to tee the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -520,7 +519,7 @@ namespace Testing5
             //invoke method
             Error = theStock.Valid(ProductName, LastAdjustment, Colour);
             //test to tee the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
