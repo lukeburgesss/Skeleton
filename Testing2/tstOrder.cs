@@ -9,6 +9,13 @@ namespace Testing2
     public class tstOrder
     {
 
+        //create some test data to pass the method
+        string OrderName = "Gloria Lubwimi";
+        string OrderCreationDate = DateTime.Now.Date.ToString();
+        
+
+
+
         [TestMethod]
         
         public void InstanceOK()
@@ -261,6 +268,21 @@ namespace Testing2
         //klar
 
 
+
+        //.....week 24......
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //creates an instance of the class we want to create
+            clsOrder theOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //invoke method
+            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            //test to see tat the result is correct
+            Assert.AreEqual(Error, "");
+        }
     }
 
 
