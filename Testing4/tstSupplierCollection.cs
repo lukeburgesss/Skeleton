@@ -36,17 +36,6 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
-            Int32 SomeCount = 0;
-            AllSuppliers.Count = SomeCount;
-
-            Assert.AreEqual(AllSuppliers.Count, SomeCount);
-
-        }
-
-        [TestMethod]
         public void ThisSupplierPropertyOK()
         {
             clsSupplierCollection AllSuppliers = new clsSupplierCollection();
@@ -136,6 +125,86 @@ namespace Testing4
 
             Assert.AreEqual(AllSuppliers.ThisSupplier, TestItem);
 
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+
+            clsSupplier TestItem = new clsSupplier();
+
+            Int32 Primarykey = 0;
+
+            TestItem.SupplierName = "Amin";
+            TestItem.SupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            TestItem.SupplierArchive = true;
+
+            AllSuppliers.ThisSupplier = TestItem;
+
+            Primarykey = AllSuppliers.Add();
+
+            TestItem.SupplierID = Primarykey;
+
+            AllSuppliers.ThisSupplier.Find(Primarykey);
+            AllSuppliers.Delete();
+
+            Boolean Found = AllSuppliers.ThisSupplier.Find(Primarykey);
+
+            Assert.IsFalse(Found);
+
+        }
+
+
+        [TestMethod]
+        public void ReportByNameMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+
+            clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
+
+            FilteredSuppliers.ReportByName("");
+
+            Assert.AreEqual(AllSuppliers.Count, FilteredSuppliers.Count);
+
+        }
+
+        [TestMethod]
+        public void ReportByNameNoneMethodOK()
+        {
+            clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
+
+            FilteredSuppliers.ReportByName("xxxxxxxx");
+
+            Assert.AreEqual(0, FilteredSuppliers.Count);
+
+        }
+
+        [TestMethod]
+        public void ReportByNameTestDataFound()
+        {
+            clsSupplierCollection FilteredSuppliers = new clsSupplierCollection();
+
+            Boolean OK = true;
+
+            FilteredSuppliers.ReportByName("Amin Amin");
+
+            if (FilteredSuppliers.Count == 2)
+            {
+                if (FilteredSuppliers.SupplierList[0].SupplierID != 20)
+                {
+                    OK = false;
+                }
+                if (FilteredSuppliers.SupplierList[0].SupplierID != 21)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
 

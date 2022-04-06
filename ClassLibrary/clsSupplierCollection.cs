@@ -63,7 +63,7 @@ namespace ClassLibrary
         {
             Int32 Index = 0;
 
-            Int32 RecordCount = 0;
+            Int32 RecordCount;
 
             RecordCount = DB.Count;
 
@@ -76,9 +76,7 @@ namespace ClassLibrary
 
                 aSupplier.SupplierID = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierID"]);
 
-
                 aSupplier.SupplierName = Convert.ToString(DB.DataTable.Rows[Index]["SupplierName"]);
-
 
                 aSupplier.SupplierDateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["SupplierDateAdded"]);
 
@@ -98,7 +96,6 @@ namespace ClassLibrary
             // add new record to db based on values of mThisSupplier
             // set pk value of new record
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@SupplierID", mThisSupplier.SupplierID);
             DB.AddParameter("@SupplierName", mThisSupplier.SupplierName);
             DB.AddParameter("@SupplierDateAdded", mThisSupplier.SupplierDateAdded);
             DB.AddParameter("@SupplierArchive", mThisSupplier.SupplierArchive);
@@ -106,7 +103,7 @@ namespace ClassLibrary
             return DB.Execute("sproc_tblSupplier_Insert");
         }
 
-
+        
         public int Update()
         {
             clsDataConnection DB = new clsDataConnection();
@@ -116,6 +113,29 @@ namespace ClassLibrary
             DB.AddParameter("@SupplierArchive", mThisSupplier.SupplierArchive);
 
             return DB.Execute("sproc_tblSupplier_Update");
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@SupplierID", mThisSupplier.SupplierID);
+
+            DB.Execute("sproc_tblSupplier_Delete");
+
+        }
+
+        public void ReportByName(string SupplierName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("SupplierName", SupplierName);
+
+            DB.Execute("sproc_tblSupplier_FilterByName");
+
+            PopulateArray(DB);
+
+
         }
     }
 }

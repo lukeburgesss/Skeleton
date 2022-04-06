@@ -157,10 +157,10 @@ namespace ClassLibrary
             try
             {
                 DateTemp = Convert.ToDateTime(lastAdjustment);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp > DateTime.Now.Date)
                 {
                     //record the error
-                    Error = Error + "The Date Cannot Be In The Past";
+                    Error = Error + "The Date Cannot Be In The Future";
                 }
             }
             catch 
@@ -180,6 +180,7 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Colour May Not Be Greater Than 50 Characters";
             }
+
             return Error;
         }
     }

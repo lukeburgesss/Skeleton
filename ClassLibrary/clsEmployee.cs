@@ -200,39 +200,25 @@ namespace ClassLibrary
                 Error = Error + "too low salary";
             }
   
-            try
+            
+            if (employeeName.Length < 1)
             {
-                if (employeeName.Length < 1)
-                {
-                    Error = Error + "too short name";
-                }
-                if (employeeName.Length > 50)
-                {
-                    Error = Error + "too long name";
-                }
+                Error = Error + "too short name";
             }
-            catch
+            if (employeeName.Length > 50)
             {
-                Error = Error + "not a valid name";
+                Error = Error + "too long name";
             }
 
 
-            try
+            if (employeeHouseAddress.Length < 1)
             {
-                if (employeeHouseAddress.Length < 1)
-                {
-                    Error = Error + "address too short";
-                }
-                if (employeeHouseAddress.Length > 50)
-                {
-                    Error = Error + "address too long";
-                }
+                Error = Error + "address too short";
             }
-            catch
+            if (employeeHouseAddress.Length > 50)
             {
-                Error = Error + "not a valid address";
+                Error = Error + "address too long";
             }
-
 
             return Error;
         }

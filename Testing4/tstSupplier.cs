@@ -121,7 +121,7 @@ namespace Testing4
             //invoke the method 
             Found = aSupplier.Find(SupplierID);
             //check the  SupplierID 
-            if (aSupplier.SupplierName != "Amin")
+            if (aSupplier.SupplierName != "Amin") 
             {
                 OK = false;
             }
