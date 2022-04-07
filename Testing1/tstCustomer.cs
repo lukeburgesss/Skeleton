@@ -13,7 +13,7 @@ namespace Testing1
         string CustomerName = "Sam Smith";
         string CustomerContactNo = "0123456789012345";
         string DeliveryAddr = "2 Bond Street, W17 5HT";
-        string CustomerDob = DateTime.Now.Date.ToString();
+        string CustomerDob = DateTime.Now.Date.AddYears(-18).ToString();
 
 
 
@@ -605,7 +605,7 @@ namespace Testing1
             //set the date to todays date
             TestDate = DateTime.Now.Date;
             //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(-100);
+            TestDate = TestDate.AddYears(-500);
             //convert the date variable to string variable
             string CustomerDob = TestDate.ToString();
             Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
@@ -623,8 +623,8 @@ namespace Testing1
             DateTime TestDate;
             //set the date to todays date
             TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddDays(-1);
+            //change the date to whatever the date is less 100 years and 1 day
+            TestDate = TestDate.AddYears(-100).AddDays(-1);
             //convert the date variable to string variable
             string CustomerDob = TestDate.ToString();
             Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
@@ -642,6 +642,8 @@ namespace Testing1
             DateTime TestDate;
             //set the date to todays date
             TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
             //convert the date variable to string variable
             string CustomerDob = TestDate.ToString();
             Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
@@ -660,12 +662,88 @@ namespace Testing1
             //set the date to todays date
             TestDate = DateTime.Now.Date;
             //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddDays(1);
+            TestDate = TestDate.AddYears(-100).AddDays(1);
+            //convert the date variable to string variable
+            string CustomerDob = TestDate.ToString();
+            Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerDobMaxMinusOne()
+        {
+            //create an isntance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-18).AddDays(-1);
+            //convert the date variable to string variable
+            string CustomerDob = TestDate.ToString();
+            Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerDobMax()
+        {
+            //create an isntance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-18);
+            //convert the date variable to string variable
+            string CustomerDob = TestDate.ToString();
+            Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerDobMaxPlusOne()
+        {
+            //create an isntance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-18).AddDays(1);
             //convert the date variable to string variable
             string CustomerDob = TestDate.ToString();
             Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerDobMid()
+        {
+            //create an isntance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-50);
+            //convert the date variable to string variable
+            string CustomerDob = TestDate.ToString();
+            Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
         public void CustomerDobExtremeMax()
@@ -679,7 +757,7 @@ namespace Testing1
             //set the date to todays date
             TestDate = DateTime.Now.Date;
             //change the date to whatever the date is less 100 years
-            TestDate = TestDate.AddYears(100);
+            TestDate = TestDate.AddYears(500);
             //convert the date variable to string variable
             string CustomerDob = TestDate.ToString();
             Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
