@@ -175,16 +175,16 @@ namespace ClassLibrary
             {
                 //copy the dateAdded value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(customerDob);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past : ";
+                    Error = Error + "The date cannot be more than 100 years in the past : ";
                 }
                 //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
+                if (DateTemp > DateTime.Now.Date.AddYears(-18))
                 {
                     //record the error
-                    Error = Error + "The date canot be in the future : ";
+                    Error = Error + "The date cannot be less than 18 years in past nor the future : ";
                 }
             }
             catch
