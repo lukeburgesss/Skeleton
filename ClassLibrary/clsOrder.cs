@@ -5,118 +5,118 @@ namespace ClassLibrary
     public class clsOrder
     {
 
-        
-        
-            //private data member for the orderId property
-            private Int32 mOrderId;
-            private Int32 mProductID;
-            private Int32 mTotalProduct;
-            private Boolean mOrderIsPaid;
-            private DateTime mOrderCreationDate;
-            private String mOrderName;
 
 
-            public Int32 OrderId
+        //private data member for the orderId property
+        private Int32 mOrderId;
+        private Int32 mProductID;
+        private Int32 mTotalProduct;
+        private Boolean mOrderIsPaid;
+        private DateTime mOrderCreationDate;
+        private String mOrderName;
+
+
+        public Int32 OrderId
+        {
+            get
             {
-                get
-                {
-                    //this line of code sends data out the property
-                    return mOrderId;
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mOrderId = value;
-                }
+                //this line of code sends data out the property
+                return mOrderId;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mOrderId = value;
+            }
+        }
+
+
+
+
+
+
+        public int ProductID
+        {
+            get
+            {
+                //this line of code sends data out the property
+                return mProductID;
+
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mProductID = value;
+
+            }
+        }
+
+        public int TotalProduct
+        {
+            get
+            {
+
+                //this line of code sends data out the property
+                return mTotalProduct;
+
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mTotalProduct = value;
             }
 
 
+        }
 
 
-
-
-            public int ProductID
+        public bool OrderIsPaid
+        {
+            get
             {
-                get
-                {
-                    //this line of code sends data out the property
-                    return mProductID;
 
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mProductID = value;
-
-                }
-            }
-
-            public int TotalProduct
-            {
-                get
-                {
-
-                    //this line of code sends data out the property
-                    return mTotalProduct;
-
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mTotalProduct = value;
-                }
-
+                //this line of code sends data out the property
+                return mOrderIsPaid;
 
             }
-
-
-            public bool OrderIsPaid
+            set
             {
-                get
-                {
-
-                    //this line of code sends data out the property
-                    return mOrderIsPaid;
-
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mOrderIsPaid = value;
-                }
+                //this line of code allows data into the property
+                mOrderIsPaid = value;
             }
+        }
 
-            public DateTime OrderCreationDate
+        public DateTime OrderCreationDate
+        {
+            get
             {
-                get
-                {
 
-                    //this line of code sends data out the property
-                    return mOrderCreationDate;
+                //this line of code sends data out the property
+                return mOrderCreationDate;
 
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mOrderCreationDate = value;
-                }
             }
-
-            public string OrderName
+            set
             {
-                get
-                {
-
-                    //this line of code sends data out the property
-                    return mOrderName;
-
-                }
-                set
-                {
-                    //this line of code allows data into the property
-                    mOrderName = value;
-                }
+                //this line of code allows data into the property
+                mOrderCreationDate = value;
             }
+        }
+
+        public string OrderName
+        {
+            get
+            {
+
+                //this line of code sends data out the property
+                return mOrderName;
+
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mOrderName = value;
+            }
+        }
         public bool Find(int OrderId)
         {
 
@@ -146,6 +146,27 @@ namespace ClassLibrary
             }
         }
 
+      /*  public string Valid(string orderName, string orderCreationDate)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //variable to store DateTemp
+            DateTime DateTemp;
+            //if the ProductName is blank
+            if (orderName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Order Name may not be blank";
+            }
+
+            if (orderName.Length > 100)
+            {
+                //record the error
+                Error = Error + "The order Name May Not Be Greater Than 50 Characters";
+            }
+            */
+
+
+        }
 
     }
-}
