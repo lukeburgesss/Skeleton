@@ -160,7 +160,7 @@ namespace ClassLibrary
         public string Valid(string employeeName, string employeeHouseAddress, string employeesalary, string employeePhoneNo, string employeeDob)
         {
             String Error = "";
-            DateTime DateTemp;
+
             if (employeePhoneNo.Length < 1)
             {
                 Error = Error + "the phone number may not be empty";
@@ -174,17 +174,17 @@ namespace ClassLibrary
             try
             {
 
-            
+                DateTime DateTemp;
                 DateTemp = Convert.ToDateTime(employeeDob);
-                if (DateTemp < DateTime.Now.AddYears(+15)) 
+                if (DateTemp > DateTime.Now.AddYears(-15)) 
                 {
                     Error = Error + "The Dob canot be that early : ";   
                 }
-                 if (DateTemp > DateTime.Now.AddYears(+90))
-                 {
+            /*    if (DateTemp > DateTime.Now.AddYears(-90))
+                {
                     Error = Error + "The Dob canot be that late: ";
-                 }
-            
+                }
+            */
             }
             catch
             {

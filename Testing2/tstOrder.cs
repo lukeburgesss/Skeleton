@@ -271,7 +271,7 @@ namespace Testing2
 
         //.....week 24......
 
-        [TestMethod]
+       /* [TestMethod]
         public void ValidMethodOK()
         {
             //creates an instance of the class we want to create
@@ -283,6 +283,8 @@ namespace Testing2
             //test to see tat the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        */
     }
 
 
