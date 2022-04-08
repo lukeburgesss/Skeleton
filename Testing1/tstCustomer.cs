@@ -16,8 +16,6 @@ namespace Testing1
         string CustomerDob = DateTime.Now.Date.AddYears(-18).ToString();
 
 
-
-
         [TestMethod]
         public void InstanceOK()
         {
@@ -778,13 +776,5 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
-
-
-
-
     }
-}
+    }
