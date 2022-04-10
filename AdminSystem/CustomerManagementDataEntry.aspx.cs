@@ -22,8 +22,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsCustomer
         clsCustomer ACustomer = new clsCustomer();
-        //capture the customer no
-        string CustomerNo = txtCustomerNo.Text;
         //capture the customer name
         string CustomerName = txtCustomerName.Text;
         //capture the customer contact no
@@ -38,22 +36,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = ACustomer.Valid(CustomerName, CustomerContactNo, DeliveryAddr, CustomerDob);
         if (Error == "")
         {
-            //capture the CustomerNo
-            ACustomer.CustomerNo = Convert.ToInt32(txtCustomerNo.Text);
             //capture the CustomerName
-            ACustomer.CustomerName = txtCustomerName.Text;
+            ACustomer.CustomerName = CustomerName;
             //capture the CustomerContactNo
-            ACustomer.CustomerContactNo = txtCustomerContactNo.Text;
+            ACustomer.CustomerContactNo = CustomerContactNo;
             //capture the DeliveryAddr
-            ACustomer.DeliveryAddr = txtDeliveryAddr.Text;
+            ACustomer.DeliveryAddr = DeliveryAddr;
             //capture the CustomerDob
-            ACustomer.CustomerDob = Convert.ToDateTime(txtDeliveryAddr.Text);
+            ACustomer.CustomerDob = Convert.ToDateTime(DeliveryAddr);
             //capture the AccountStatus
-            ACustomer.AccountStatus = Convert.ToBoolean(chkAccountStatus);
-            //store the a customer in the session object
-            Session["ACustomer"] = ACustomer;
-            //navigate to the viewer page
-            Response.Redirect("CustomerManagementViewer.aspx");
+            ACustomer.AccountStatus = chkAccountStatus.Checked;
+            //create new instance of the address collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set the ThisCustomer property
+            CustomerList.ThisCustomer = ACustomer;
+            //add the new record
+            CustomerList.Add();
+            //redirect back to the listpage
+            Response.Redirect("CustomerManagementList.aspx");
         }    
         else
         {
