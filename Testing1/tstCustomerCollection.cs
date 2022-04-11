@@ -117,5 +117,42 @@ namespace Testing1
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
 
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the ckass we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountStatus = true;
+            TestItem.CustomerName = "Sam Smith";
+            TestItem.CustomerContactNo = "07555555555";
+            TestItem.DeliveryAddr = "2 Bond Street, W17 5HT";
+            TestItem.CustomerDob = Convert.ToDateTime("24/03/2000");
+            //set ThisCustomer to test data
+            AllCustomers.ThisCustomer = TestItem;
+            //set the primary key of the test data
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            //modify the test data
+            TestItem.AccountStatus = false;
+            TestItem.CustomerName = "some name";
+            TestItem.CustomerContactNo = "0766666666";
+            TestItem.DeliveryAddr = "5 High Street, W18 6HT";
+            TestItem.CustomerDob = Convert.ToDateTime("15/03/2002");
+            //set the record based on the new test data
+            AllCustomers.ThisCustomer = TestItem;
+            //update the record
+            AllCustomers.Update();
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see ThisCustomer matches the test data
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
+
     }
     }
