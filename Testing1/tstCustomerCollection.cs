@@ -183,6 +183,58 @@ namespace Testing1
             //test to see record was not found
             Assert.IsFalse(Found);
         }
+        [TestMethod]
+        public void ReportByCustomerNameMethodOK()
+        {
+            //create an instance of the ckass we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create an instance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a blank string (should return all records);
+            FilteredCustomers.ReportByCustomerName("");
+            //test to see that two values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
+        [TestMethod]
+        public void ReportByCustomerNameNoneFound()
+        {
+            //create instance of filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a name that doesnt exist
+            FilteredCustomers.ReportByCustomerName("xxxx xxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
+        [TestMethod]
+        public void ReportByCustomerNameTestDataFound()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+
+            Boolean OK = true;
+
+            FilteredCustomers.ReportByCustomerName("sommy");
+
+            if (FilteredCustomers.Count == 2)
+            {
+                if (FilteredCustomers.CustomerList[0].CustomerNo != 22)
+                {
+                    OK = false;
+                }
+                if (FilteredCustomers.CustomerList[1].CustomerNo != 23)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+
 
     }
     }
