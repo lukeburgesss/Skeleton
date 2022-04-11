@@ -153,6 +153,36 @@ namespace Testing1
             //test to see ThisCustomer matches the test data
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the ckass we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountStatus = true;
+            TestItem.CustomerName = "Sam Smith";
+            TestItem.CustomerContactNo = "07555555555";
+            TestItem.DeliveryAddr = "2 Bond Street, W17 5HT";
+            TestItem.CustomerDob = Convert.ToDateTime("24/03/2000");
+            //set ThisCustomer to test data
+            AllCustomers.ThisCustomer = TestItem;
+            //set the primary key of the test data
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //delete the record
+            AllCustomers.Delete();
+            //now find the record
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see record was not found
+            Assert.IsFalse(Found);
+        }
 
     }
     }
