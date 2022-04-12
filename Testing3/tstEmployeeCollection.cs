@@ -94,11 +94,12 @@ namespace Testing3
 
             Int32 Primarykey = 0;
 
-            TestItem.EmployeeID = 1;
-            TestItem.EmployeeName = "luke";
-            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
-            TestItem.EmployeeHouseAddress = "19 coldstream close";
-            TestItem.Employeesalary = 180;
+            TestItem.EmployeeID = 7;
+            TestItem.EmployeePhoneNo = "27";
+            TestItem.EmployeeName = "testp";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/1999");
+            TestItem.EmployeeHouseAddress = "teststreat";
+            TestItem.Employeesalary = 777;
             TestItem.EmployeeContractStatus = true;
 
             allEmployees.ThisEmployee = TestItem;
@@ -123,12 +124,11 @@ namespace Testing3
             Int32 Primarykey = 0;
 
 
-
-            TestItem.EmployeeID = 1;
-            TestItem.EmployeeName = "luke";
-            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
-            TestItem.EmployeeHouseAddress = "19 coldstream close";
-            TestItem.Employeesalary = 180;
+            TestItem.EmployeePhoneNo = "27";
+            TestItem.EmployeeName = "testp";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/1999");
+            TestItem.EmployeeHouseAddress = "teststreat";
+            TestItem.Employeesalary = 777;
             TestItem.EmployeeContractStatus = true;
 
             allEmployees.ThisEmployee = TestItem;
@@ -137,7 +137,7 @@ namespace Testing3
 
             TestItem.EmployeeID = Primarykey;
 
-            TestItem.EmployeeID = 7;
+            TestItem.EmployeePhoneNo = "27";
             TestItem.EmployeeName = "Dog";
             TestItem.EmployeeDob = Convert.ToDateTime("08/06/2000");
             TestItem.EmployeeHouseAddress = "20 coldstream close";
@@ -162,11 +162,12 @@ namespace Testing3
 
             Int32 Primarykey = 0;
 
-            TestItem.EmployeeID = 1;
-            TestItem.EmployeeName = "luke";
-            TestItem.EmployeeDob = Convert.ToDateTime("08/06/2002");
-            TestItem.EmployeeHouseAddress = "19 coldstream close";
-            TestItem.Employeesalary = 180;
+
+            TestItem.EmployeePhoneNo = "27";
+            TestItem.EmployeeName = "testp";
+            TestItem.EmployeeDob = Convert.ToDateTime("08/06/1999");
+            TestItem.EmployeeHouseAddress = "teststreat";
+            TestItem.Employeesalary = 777;
             TestItem.EmployeeContractStatus = true;
 
             allEmployees.ThisEmployee = TestItem;
@@ -218,15 +219,15 @@ namespace Testing3
 
             Boolean OK = true;
 
-            FilteredEmployees.ReportByName("luke luke");
+            FilteredEmployees.ReportByName("luke");
 
                 if (FilteredEmployees.Count == 2)
                 {
-                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 8)
+                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 1)
                     {
                     OK = false;
                     }
-                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 9)
+                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 5)
                     {
                     OK = false;
                     }

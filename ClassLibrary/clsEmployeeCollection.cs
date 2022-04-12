@@ -93,7 +93,7 @@ namespace ClassLibrary
 
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@EmployeeID", mThisEmployee.EmployeeID);
-            DB.Execute("sproc_tblEmployee_Delete");
+            DB.Execute("sproc_tblEmployees_Delete");
         }
 
 

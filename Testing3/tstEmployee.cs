@@ -447,7 +447,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-17);
+            TestDate = TestDate.AddYears(-16);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -468,7 +468,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
             //change the date to whatever the date is less 1 day
-            TestDate = TestDate.AddYears(-15);
+            TestDate = TestDate.AddYears(-14);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -489,7 +489,7 @@ namespace Testing3
             //set the date totodays date
             TestDate = DateTime.Now.Date;
 
-            TestDate = TestDate.AddYears(-16);
+            TestDate = TestDate.AddYears(-56);
             //convert the date variable to a string variable
             string EmployeeDob = TestDate.ToString();
             //invoke the method
@@ -779,7 +779,7 @@ namespace Testing3
             //invoke the method
             Error = AnEmployee.Valid(EmployeeName, EmployeeHouseAddress, Employeesalary, EmployeePhoneNo, EmployeeDob);
             //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
