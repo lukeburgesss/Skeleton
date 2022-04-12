@@ -18,23 +18,52 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder 
         clsOrder theOrder = new clsOrder();
         //capture the OrderId
-       theOrder.OrderId = Convert.ToInt32(txtOrderId.Text);
+       string OrderId = txtOrderId.Text;
         //capture the Product ID
-      theOrder.ProductID = Convert.ToInt32(txtProductID.Text);
+       string ProductID = txtProductID.Text;
         //capture the Total Product
-       theOrder.TotalProduct = Convert.ToInt32(txtTotalProduct.Text);
+       string TotalProduct = txtTotalProduct.Text;
         //capture the OrderIsPaid
-        theOrder.OrderIsPaid = Convert.ToBoolean(chkOrderIsPaid.Checked);
+       //theOrder.OrderIsPaid = Convert.ToBoolean(chkOrderIsPaid.Checked);
         //capture the OrderIsPaid
-       theOrder.OrderCreationDate = Convert.ToDateTime(txtOrderCreationDate.Text);
+       string OrderCreationDate = txtOrderCreationDate.Text;
         //capture the OrderName
-        theOrder.OrderName = txtOrderName.Text;
-        //get the data from the session object
-        Session["theOrder"] = theOrder;
-        //naviget to the viewer page 
-        Response.Redirect("OrderProcessingViewer.aspx");
+       string OrderName = txtOrderName.Text;
+        //variable to store any error messages 
+        string Error = "";
+        //validate the data 
+        Error = theOrder.Valid(OrderName, OrderCreationDate);
+        if (Error == "")
+        {
+            
+            //capture the OrderId 
+            theOrder.OrderId = Convert.ToInt32 (OrderId);
+            //capture the ProductID 
+            theOrder.ProductID = Convert.ToInt32(ProductID);
+            //capture the Total Product 
+            theOrder.TotalProduct = Convert.ToInt32(TotalProduct);
+            //capture the Order Creation Data
+            theOrder.OrderCreationDate = Convert.ToDateTime(OrderCreationDate);
+            //capture the Order Name 
+            theOrder.OrderName = OrderName;
+            //store the adress in the session object
+            Session["theOrder"] = theOrder;
+            //redirect to the viewer page
+            Response.Write("OrderViewer.aspx");
+
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
+
     }
 
+ 
+    
+    
+    
     protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the Order class
