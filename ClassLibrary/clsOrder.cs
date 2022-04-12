@@ -146,7 +146,7 @@ namespace ClassLibrary
             }
         }
 
-      /*  public string Valid(string orderName, string orderCreationDate)
+        public string Valid(string orderName, string orderCreationDate)
         {
             //create a string variable to store the error
             String Error = "";
@@ -162,11 +162,36 @@ namespace ClassLibrary
             if (orderName.Length > 100)
             {
                 //record the error
-                Error = Error + "The order Name May Not Be Greater Than 50 Characters";
+                Error = Error + "The order Name May Not Be Greater Than 100 Characters";
             }
-            */
+
+            try
+            {
+                //copy the orderCreationDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderCreationDate);
+                if (DateTemp < DateTime.Now.Date)
 
 
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+
+
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+
+            catch
+            {
+                //record the error
+                Error = Error + "The Date Was Not A Valid Date";
+            }
+
+            return Error;
         }
-
     }
+}
+
