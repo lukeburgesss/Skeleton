@@ -94,7 +94,7 @@ namespace Testing3
 
             Int32 Primarykey = 0;
 
-            TestItem.EmployeeID = 7;
+            TestItem.EmployeeID = 1;
             TestItem.EmployeePhoneNo = "27";
             TestItem.EmployeeName = "testp";
             TestItem.EmployeeDob = Convert.ToDateTime("08/06/1999");
@@ -219,15 +219,15 @@ namespace Testing3
 
             Boolean OK = true;
 
-            FilteredEmployees.ReportByName("luke");
+            FilteredEmployees.ReportByName("stan");
 
                 if (FilteredEmployees.Count == 2)
                 {
-                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 1)
+                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 2)
                     {
                     OK = false;
                     }
-                    if (FilteredEmployees.EmployeeList[0].EmployeeID != 5)
+                    if (FilteredEmployees.EmployeeList[1].EmployeeID != 4)
                     {
                     OK = false;
                     }

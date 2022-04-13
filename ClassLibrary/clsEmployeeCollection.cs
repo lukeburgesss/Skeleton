@@ -5,7 +5,16 @@ namespace ClassLibrary
 {
     public class clsEmployeeCollection
     {
+        //constructor for the class
+        public clsEmployeeCollection()
+        {
+            clsDataConnection DB = new clsDataConnection();
 
+            DB.Execute("sproc_tblEmployee_SelectAll");
+
+            PopulateArray(DB);
+
+        }
 
         //private data member 
         List<clsEmployee> mEmployeeList = new List<clsEmployee>();
@@ -46,22 +55,13 @@ namespace ClassLibrary
             }
         }
 
-        //constructor for the class
-        public clsEmployeeCollection()
-        {
-            clsDataConnection DB = new clsDataConnection();
 
-            DB.Execute("sproc_tblEmployee_SelectAll");
-
-            PopulateArray(DB);
-
-        }
 
         public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@EmployeeID", mThisEmployee.EmployeeID);
+            
             DB.AddParameter("@EmployeePhoneNo", mThisEmployee.EmployeePhoneNo);
             DB.AddParameter("@EmployeeHouseAddress", mThisEmployee.EmployeeHouseAddress);
             DB.AddParameter("@Employeesalary", mThisEmployee.Employeesalary);
@@ -116,7 +116,7 @@ namespace ClassLibrary
         {
             Int32 Index = 0;
 
-            Int32 RecordCount = 0;
+            Int32 RecordCount;
 
             RecordCount = DB.Count;
 
@@ -132,6 +132,7 @@ namespace ClassLibrary
                 AnEmployee.EmployeeDob = Convert.ToDateTime(DB.DataTable.Rows[Index]["EmployeeDob"]);
                 AnEmployee.EmployeeHouseAddress = Convert.ToString(DB.DataTable.Rows[Index]["EmployeeHouseAddress"]);
                 AnEmployee.Employeesalary = Convert.ToInt32(DB.DataTable.Rows[Index]["Employeesalary"]);
+                AnEmployee.EmployeePhoneNo = Convert.ToString(DB.DataTable.Rows[Index]["EmployeePhoneNo"]);
                 AnEmployee.EmployeeContractStatus = Convert.ToBoolean(DB.DataTable.Rows[Index]["EmployeeContractStatus"]);
 
                 mEmployeeList.Add(AnEmployee);
