@@ -3,10 +3,13 @@ using System.Collections.Generic;
 
 namespace ClassLibrary
 {
-    public class clsStockCollection
-
-      
+    public class clsStockCollection     
     {
+        //private data member for the list
+        List<clsStock> mStockList = new List<clsStock>();
+        //private data member thisStock
+        clsStock mThisStock = new clsStock();
+
        //constructor for the class
         public clsStockCollection()
         {
@@ -39,8 +42,6 @@ namespace ClassLibrary
                 Index++;
             }
         }
-        //private data member for the list
-        List<clsStock> mStockList = new List<clsStock>();
         public List<clsStock> StockList 
         {
             get
@@ -66,6 +67,34 @@ namespace ClassLibrary
                 //later
             }
         }
-        public clsStock ThisStock { get; set; }
+        public clsStock ThisStock 
+        {
+            get
+            {
+                //return the private data
+                return mThisStock;
+            }
+            set
+            {
+                //set the private data
+                mThisStock = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@ProductName", mThisStock.ProductName);
+            DB.AddParameter("@InStock", mThisStock.InStock);
+            DB.AddParameter("@ProductQuantity", mThisStock.ProductQuantity);
+            DB.AddParameter("@LastAdjustment", mThisStock.LastAdjustment);
+            DB.AddParameter("@Colour", mThisStock.Colour);
+            DB.AddParameter("@Price", mThisStock.Price);
+            //execute the query
+            return DB.Execute("sproc_tblStock_Insert");
+        }
     }
 }

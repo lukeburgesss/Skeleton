@@ -43,10 +43,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
             theStock.Colour = Colour;
             //captures the Price
             theStock.Price = Convert.ToDouble(Price);
-            //store the information in the session object
-            Session["theStock"] = theStock;
-            //redirect to the viewer page
-            Response.Write("StockViewer.aspx");
+            //creates a new instance of the stock collection
+            clsStockCollection StockList = new clsStockCollection();
+            //set ThisStock property
+            StockList.ThisStock = theStock;
+            //add the new record
+            StockList.Add();
+            //redirect to the listpage
+            Response.Redirect("StockList.aspx");
         }
         else
         {
