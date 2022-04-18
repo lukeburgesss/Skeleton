@@ -123,7 +123,7 @@ namespace Testing5
             //Boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //test to see if the result is true
@@ -140,11 +140,11 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
-            if (theStock.ProductId != 10)
+            if (theStock.ProductId != 1)
             {
                 OK = false;
             }
@@ -162,7 +162,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
@@ -184,7 +184,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
@@ -206,7 +206,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
@@ -228,7 +228,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
@@ -250,7 +250,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
@@ -272,7 +272,7 @@ namespace Testing5
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
-            Int32 ProductId = 10;
+            Int32 ProductId = 1;
             //invoke the method
             Found = theStock.Find(ProductId);
             //check the ProductID
