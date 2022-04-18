@@ -8,9 +8,38 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key
+    Int32 ProductId;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the address to be processed
+        ProductId = Convert.ToInt32(Session["ProductId"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (ProductId != -1)
+            {
+                //display the current data
+                DisplayStock();
+            }
+        }
 
+    }
+
+    private void DisplayStock()
+    {
+        //create an instance of the class we want to create
+        clsStockCollection Stock = new clsStockCollection();
+        //find the record to update
+        Stock.ThisStock.Find(ProductId);
+        //display the data for this record
+        txtProductId.Text = Stock.ThisStock.ProductId.ToString();
+        txtProductName.Text = Stock.ThisStock.ProductName.ToString();
+        chkInStock.Checked = Stock.ThisStock.InStock;
+        txtProductQuantity.Text = Stock.ThisStock.ProductQuantity.ToString();
+        txtLastAdjustment.Text = Stock.ThisStock.LastAdjustment.ToString();
+        txtColour.Text = Stock.ThisStock.Colour.ToString();
+        txtPrice.Text = Stock.ThisStock.Price.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -33,8 +62,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = theStock.Valid(ProductName, LastAdjustment, Colour);
         if (Error == "")
         {
+            //capures the Product Id
+            theStock.ProductId = ProductId;
             //captures the Product Name
             theStock.ProductName = ProductName;
+            //captures the In Stock
+            theStock.InStock = chkInStock.Checked;
             //captures the Product Quantity
             theStock.ProductQuantity = Convert.ToInt32(ProductQuantity);
             //captures the Last Adjustment
@@ -45,11 +78,26 @@ public partial class _1_DataEntry : System.Web.UI.Page
             theStock.Price = Convert.ToDouble(Price);
             //creates a new instance of the stock collection
             clsStockCollection StockList = new clsStockCollection();
-            //set ThisStock property
-            StockList.ThisStock = theStock;
-            //add the new record
-            StockList.Add();
-            //redirect to the listpage
+
+            //if this is a new record then add data
+            if (ProductId == -1)
+            {
+                //set the ThisStock property
+                StockList.ThisStock = theStock;
+                //add the new record
+                StockList.Add();
+            }
+            //otherwise must be an update
+            else
+            {
+                //find the record to update
+                StockList.ThisStock.Find(ProductId);
+                //set the ThisStock property
+                StockList.ThisStock = theStock;
+                //update record
+                StockList.Update();
+            }
+            //redirect to listpage
             Response.Redirect("StockList.aspx");
         }
         else
