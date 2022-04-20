@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace Testing2
 {
@@ -300,7 +301,7 @@ namespace Testing2
             //invok the method
             Error = theOrder.Valid(OrderName, OrderCreationDate);
             //test to see that the result is correct
-            Assert.ArNotEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]

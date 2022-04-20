@@ -1,0 +1,91 @@
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+
+namespace Testing2
+{
+    [TestClass]
+    public class tstOrderCollection
+    {
+        [TestMethod]
+        public void InstanceOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //test to see that it exists
+            Assert.IsNotNull(AllOrders);
+        }
+
+        public void OrderLisrOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test to assign to the property
+            //in this case the date needs to be a list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //add an item to the list 
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //set its properties
+            TestItem.OrderIsPaid = true;
+            TestItem.OrderName = "gloria";
+            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.TotalProduct = 14;
+            TestItem.ProductID = 2;
+            TestItem.OrderId = 1;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property 
+            AllOrders.OrderList = TestList;
+            //test to se that the two values are the same 
+            Assert.AreEqual(AllOrders.OrderList, TestList);
+
+        }
+
+        public void ThisOrdersPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test to assign to the property
+            clsOrder TestOrders = new clsOrder();
+            //set the properties
+            TestOrders.OrderIsPaid = true;
+            TestOrders.OrderName = "gloria";
+            TestOrders.OrderCreationDate = DateTime.Now.Date;
+            TestOrders.TotalProduct = 14;
+            TestOrders.ProductID = 2;
+            TestOrders.OrderId = 1;
+            //assign the data to the property
+            AllOrders.ThisOrder = TestOrders;
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllOrders.ThisOrder, TestOrders);
+        }
+
+        public void ListAndCountOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test to assign to the property
+            //in this case the date needs to be a list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //add an item to the list 
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //set its properties
+            TestItem.OrderIsPaid = true;
+            TestItem.OrderName = "gloria";
+            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.TotalProduct = 14;
+            TestItem.ProductID = 2;
+            TestItem.OrderId = 1;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property 
+            AllOrders.OrderList = TestList;
+            //test to se that the two values are the same 
+            Assert.AreEqual(AllOrders.Count, TestList.Count);
+
+        }
+    }
+}
