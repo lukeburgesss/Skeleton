@@ -227,11 +227,11 @@ namespace Testing5
             //checkthe correct number of records is found
             if (FilteredStock.Count == 2)
             {
-                if (FilteredStock.StockList[0].ProductId != 38)
+                if (FilteredStock.StockList[0].ProductId != 50)
                 {
                     OK = false;
                 }
-                if (FilteredStock.StockList[1].ProductId != 39)
+                if (FilteredStock.StockList[1].ProductId != 51)
                 {
                     OK = false;
                 }
