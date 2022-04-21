@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder 
         clsOrder theOrder = new clsOrder();
         //capture the OrderId
-       string OrderId = txtOrderId.Text;
+     //  string OrderId = txtOrderId.Text;
         //capture the Product ID
        string ProductID = txtProductID.Text;
         //capture the Total Product
@@ -37,7 +37,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             
             //capture the OrderId 
-            theOrder.OrderId = Convert.ToInt32 (OrderId);
+          //  theOrder.OrderId = Convert.ToInt32(OrderId);
             //capture the ProductID 
             theOrder.ProductID = Convert.ToInt32(ProductID);
             //capture the Total Product 
@@ -46,10 +46,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
             theOrder.OrderCreationDate = Convert.ToDateTime(OrderCreationDate);
             //capture the Order Name 
             theOrder.OrderName = OrderName;
-            //store the adress in the session object
-            Session["theOrder"] = theOrder;
-            //redirect to the viewer page
-            Response.Write("OrderViewer.aspx");
+            //capture the OrderIsPaid
+            theOrder.OrderIsPaid = chkOrderIsPaid.Checked;
+            //create a new instance of the Order collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+            //set the thisorder property
+            OrderList.ThisOrder = theOrder;
+            //add the new record
+            OrderList.Add();
+            //redirect back to this listpage
+            Response.Redirect("OrderProcessing.aspx");
 
         }
         else

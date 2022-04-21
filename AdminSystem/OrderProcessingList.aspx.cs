@@ -30,4 +30,12 @@ public partial class OrderProcessingList : System.Web.UI.Page
         //bind the data to the list 
         lstOrderList.DataBind();
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //store -1 into the session object to indicate this is a new record 
+        Session["OrderId"] = -1;
+        //redirect to the data entry page 
+        Response.Redirect("OrderProcessingBookDataEntry.aspx");
+    }
 }
