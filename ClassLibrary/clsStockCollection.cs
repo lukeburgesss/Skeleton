@@ -13,34 +13,12 @@ namespace ClassLibrary
        //constructor for the class
         public clsStockCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record
-            Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblStock_SelectAll");
-            //get count of records
-            RecordCount = DB.Count;
-            //get the count of records
-            while (Index < RecordCount)
-            {
-                //creates a blank address
-                clsStock TheStock = new clsStock();
-                //read in the fields from current record
-                TheStock.ProductId = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductId"]);
-                TheStock.ProductName = Convert.ToString(DB.DataTable.Rows[Index]["ProductName"]);
-                TheStock.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
-                TheStock.ProductQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductQuantity"]);
-                TheStock.LastAdjustment = Convert.ToDateTime(DB.DataTable.Rows[Index]["LastAdjustment"]);
-                TheStock.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
-                TheStock.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
-                //add the records to the private data member
-                mStockList.Add(TheStock);
-                //point at the next record
-                Index++;
-            }
+            //populate array list with the table data
+            PopulateArray(DB);
         }
         public List<clsStock> StockList 
         {
@@ -123,6 +101,50 @@ namespace ClassLibrary
             DB.AddParameter("@ProductId", mThisStock.ProductId);
             //execute stored procedure
             DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void ReportByProductName(string ProductName)
+        {
+            //filters the records based on a full or partial Product Name
+            clsDataConnection DB = new clsDataConnection();
+            //send the ProductName to database
+            DB.AddParameter("@ProductName", ProductName);
+            //execute procedure
+            DB.Execute("sproc_tblStock_FilterByProductName");
+            //populate array list with the table data
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates array list based of the data table in th eparameter DB
+            //var for the index
+ 
+            Int32 Index = 0;
+            //var to store the record
+            Int32 RecordCount;
+            //get count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mStockList = new List<clsStock>();
+            //get the count of records
+            while (Index < RecordCount)
+            {
+                //creates a blank address
+                clsStock TheStock = new clsStock();
+                //read in the fields from current record
+                TheStock.ProductId = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductId"]);
+                TheStock.ProductName = Convert.ToString(DB.DataTable.Rows[Index]["ProductName"]);
+                TheStock.InStock = Convert.ToBoolean(DB.DataTable.Rows[Index]["InStock"]);
+                TheStock.ProductQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductQuantity"]);
+                TheStock.LastAdjustment = Convert.ToDateTime(DB.DataTable.Rows[Index]["LastAdjustment"]);
+                TheStock.Colour = Convert.ToString(DB.DataTable.Rows[Index]["Colour"]);
+                TheStock.Price = Convert.ToDouble(DB.DataTable.Rows[Index]["Price"]);
+                //add the records to the private data member
+                mStockList.Add(TheStock);
+                //point at the next record
+                Index++;
+            }
         }
     }
 }
