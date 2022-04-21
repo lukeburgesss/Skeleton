@@ -12,11 +12,11 @@
             <asp:AdRotator ID="AdRotator1" runat="server" />
         </div>
         <asp:Label ID="lblEmployeeNo" runat="server" Text="Employee Number" width="124px"></asp:Label>
-        <asp:TextBox ID="txtEmployeeNo" runat="server" OnTextChanged="txtEmployeeNo_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtEmployeeNo" runat="server" OnTextChanged="txtEmployeeNo_TextChanged" width="128px"></asp:TextBox>
         <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         <p>
             <asp:Label ID="lblEmployeeName" runat="server" Text="Name" width="124px"></asp:Label>
-            <asp:TextBox ID="txtEmployeeName" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmployeeName" runat="server" width="128px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblDOB" runat="server" Text="Date Of Birth" width="124px"></asp:Label>
@@ -24,15 +24,15 @@
         </p>
         <p>
             <asp:Label ID="lblHouseAddress" runat="server" Text="House Address" width="124px"></asp:Label>
-            <asp:TextBox ID="txtHouseAddress" runat="server" OnTextChanged="txtHouseAddress_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtHouseAddress" runat="server" OnTextChanged="txtHouseAddress_TextChanged" width="128px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblsalary" runat="server" Text="Salary" width="124px"></asp:Label>
-            <asp:TextBox ID="txtEmployeesalary" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmployeesalary" runat="server" width="128px"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="lblphonenumber" runat="server" Text="PhoneNo"></asp:Label>
-            <asp:TextBox ID="txtEmployeePhoneNo" runat="server" style="margin-bottom: 0px"></asp:TextBox>
+            <asp:Label ID="lblphonenumber" runat="server" Text="PhoneNo" width="124px"></asp:Label>
+            <asp:TextBox ID="txtEmployeePhoneNo" runat="server" style="margin-bottom: 0px" width="128px"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="lblContractStatus" runat="server" Text="Contract Status"></asp:Label>
