@@ -38,4 +38,24 @@ public partial class OrderProcessingList : System.Web.UI.Page
         //redirect to the data entry page 
         Response.Redirect("OrderProcessingBookDataEntry.aspx");
     }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be edited 
+        Int32 OrderId;
+        //if a recorde has been selectede from the list 
+        if (lstOrderList.SelectedIndex != -1)
+        {
+            //get the primary key velue of the record to edit 
+            OrderId = Convert.ToInt32(lstOrderList.SelectedValue);
+            //store the data in the session object 
+            Session["OrderId"] = OrderId;
+            //rediret to the edit page 
+            Response.Redirect("OrderProcessingBookDataEntry.aspx");
+        }
+        else //if no record has been selected
+        {
+            lblError.Text = "Please select a record to edit from the list";
+        }
+    }
 }
