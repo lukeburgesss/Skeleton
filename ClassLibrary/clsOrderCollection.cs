@@ -131,5 +131,22 @@ namespace ClassLibrary
             //execute the query returning the prymary key
             return DB.Execute("sproc_tblOrder_Insert");
         }
+
+        public void Update()
+        {
+            //adds a new recorde to the database based on the value of mThisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderId", mThisOrder.OrderId);
+            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@TotalProduct", mThisOrder.TotalProduct);
+            DB.AddParameter("@OrderIsPaid", mThisOrder.OrderIsPaid);
+            DB.AddParameter("@OrderCreationDate", mThisOrder.OrderCreationDate);
+            DB.AddParameter("@OrderName", mThisOrder.OrderName);
+            //execute the query returning the prymary key
+            DB.Execute("sproc_tblOrder_Insert");
+
+        }
     }
 }
