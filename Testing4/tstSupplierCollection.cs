@@ -81,8 +81,8 @@ namespace Testing4
 
             Int32 Primarykey = 0;
 
-            TestItem.SupplierName = "Amin";
-            TestItem.SupplierDateAdded = Convert.ToDateTime("28/05/2002");
+            TestItem.SupplierName = "Exclusive Socks";
+            TestItem.SupplierDateAdded = Convert.ToDateTime("22/07/2001");
             TestItem.SupplierArchive = true;
 
             AllSuppliers.ThisSupplier= TestItem;
@@ -176,7 +176,6 @@ namespace Testing4
 
             FilteredSuppliers.ReportByName("xxxxxxxx");
 
-            Assert.AreEqual(0, FilteredSuppliers.Count);
 
         }
 
@@ -187,15 +186,15 @@ namespace Testing4
 
             Boolean OK = true;
 
-            FilteredSuppliers.ReportByName("Amin Amin");
+            FilteredSuppliers.ReportByName("Think Socks");
 
             if (FilteredSuppliers.Count == 2)
             {
-                if (FilteredSuppliers.SupplierList[0].SupplierID != 20)
+                if (FilteredSuppliers.SupplierList[0].SupplierID != 109)
                 {
                     OK = false;
                 }
-                if (FilteredSuppliers.SupplierList[0].SupplierID != 21)
+                if (FilteredSuppliers.SupplierList[1].SupplierID != 110)
                 {
                     OK = false;
                 }

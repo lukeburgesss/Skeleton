@@ -6,6 +6,16 @@ namespace ClassLibrary
     public class clsSupplierCollection
     {
 
+        public clsSupplierCollection()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.Execute("sproc_tblSupplier_SelectAll");
+
+            PopulateArray(DB);
+
+        }
+
         //private data member 
         List<clsSupplier> mSupplierList = new List<clsSupplier>();
 
@@ -45,18 +55,6 @@ namespace ClassLibrary
             {
                 //Sort out later
             }
-        }
-
-        
-
-        public clsSupplierCollection()
-        {
-            clsDataConnection DB = new clsDataConnection();
-
-            DB.Execute("sproc_tblSupplier_SelectAll");
-
-            PopulateArray(DB);
-
         }
 
         void PopulateArray(clsDataConnection DB)
