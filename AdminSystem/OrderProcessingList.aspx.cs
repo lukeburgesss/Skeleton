@@ -79,4 +79,37 @@ public partial class OrderProcessingList : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of stock collection
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByOrderName(txtFilter.Text);
+        lstOrderList.DataSource = Order.OrderList;
+        //set the name of the primary key 
+        lstOrderList.DataValueField = "OrderId";
+        //set the name of the field to display 
+        lstOrderList.DataTextField = "OrderName";
+        //bind the data to the list 
+        lstOrderList.DataBind();
+
+
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of stock collection
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByOrderName("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstOrderList.DataSource = Order.OrderList;
+        //set the name of the primary key 
+        lstOrderList.DataValueField = "OrderId";
+        //set the name of the field to display 
+        lstOrderList.DataTextField = "OrderName";
+        //bind the data to the list 
+        lstOrderList.DataBind();
+
+    }
 }

@@ -116,6 +116,7 @@ namespace Testing2
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
 
+        [TestMethod]
         public void UpdateMethodOK()
         {
             //create an instance of the class we want to create 
@@ -156,6 +157,7 @@ namespace Testing2
 
         }
 
+        [TestMethod]
         public void DeleteMethodOK()
         {
             //create an instance of the class we want to create 
@@ -187,5 +189,58 @@ namespace Testing2
             Assert.IsFalse(Found); 
         }
 
+        [TestMethod]
+        public void ReportByOrderNameMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            // create an instance of the filtered data
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records)
+            FilteredOrder.ReportByOrderName("");
+            //test to see that the teo values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrder.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderNameNoneFound()
+        {
+            //create an instance of the class we want to create 
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string which returns all records
+            FilteredOrder.ReportByOrderName("fdjbdjhbjhkdahkncz");
+            //test to see that there are no recordes 
+            Assert.AreEqual(0, FilteredOrder.Count);
+        }
+
+        public void ReportByOrdertNameTestDataFound()
+        {
+            //create an instance of the class we want to create 
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //var to store outcome 
+            Boolean OK = true;
+            //apply a post code that doesn't exist
+            FilteredOrder.ReportByOrderName("lets see");
+            //checkthe correct number of records is found
+            if (FilteredOrder.Count == 2)
+            {
+                if (FilteredOrder.OrderList[0].OrderId !=100)
+                {
+                    OK = false;
+                }
+                if (FilteredOrder.OrderList[1].OrderId != 101)
+                {
+                    OK = false;
+                }
+
+            }
+            else
+            {
+                OK = false;
+            }
+
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
     }
 }
