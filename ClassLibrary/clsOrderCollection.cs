@@ -148,5 +148,16 @@ namespace ClassLibrary
             DB.Execute("sproc_tblOrder_Insert");
 
         }
+
+        public void Delete()
+        {
+            //deletes the record pointed by ProductId
+            //conect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set parameters or stored procedure
+            DB.AddParameter("@OrderId", mThisOrder.OrderId);
+            //execute stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
     }
 }

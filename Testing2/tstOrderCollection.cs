@@ -156,5 +156,36 @@ namespace Testing2
 
         }
 
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create a item of test data
+            clsOrder TestItem = new clsOrder();
+            //var to store the primeay key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.OrderIsPaid = true;
+            TestItem.OrderName = "gloria";
+            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.TotalProduct = 14;
+            TestItem.ProductID = 2;
+            TestItem.OrderId = 1;
+            //set ThisOrder to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the prymary key of the test data 
+            TestItem.OrderId = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Delete();
+            //now find the record 
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that thr record was not found 
+            Assert.IsFalse(Found); 
+        }
+
     }
 }
