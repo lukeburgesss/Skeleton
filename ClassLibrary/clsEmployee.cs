@@ -180,11 +180,15 @@ namespace ClassLibrary
                 {
                     Error = Error + "The Dob canot be that early : ";   
                 }
-            /*    if (DateTemp > DateTime.Now.AddYears(-90))
+                if (DateTemp < DateTime.Now.AddYears(-90))
                 {
-                    Error = Error + "The Dob canot be that late: ";
+                    Error = Error + "The Dob canot be that late : ";
                 }
-            */
+                /*    if (DateTemp > DateTime.Now.AddYears(-90))
+                    {
+                        Error = Error + "The Dob canot be that late: ";
+                    }
+                */
             }
             catch
             {
