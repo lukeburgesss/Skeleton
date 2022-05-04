@@ -3,8 +3,7 @@ GO
 
 DECLARE	@return_value Int
 
-EXEC	@return_value = [dbo].[sproc_tblemployee_filterByemployeeID]
-		@EmployeeID = 1
+EXEC	@return_value = [dbo].[sproc_tblOrders_SelecrAll]
 
 SELECT	@return_value as 'Return Value'
 
