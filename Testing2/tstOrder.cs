@@ -123,13 +123,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the validation
-            Boolean found = false;
+            Boolean Found = false;
             //create some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //test to see if the result is true
-            Assert.IsTrue(found);
+            Assert.IsTrue(Found);
         }
         //klar
 
@@ -139,13 +139,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the OrderId
             if (theOrder.OrderId != 21)
             {
@@ -162,13 +162,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the ProductID
             if (theOrder.ProductID != 21)
             {
@@ -185,13 +185,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the Total product
             if (theOrder.TotalProduct != 21)
             {
@@ -209,13 +209,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the Order Is Paid
             if (theOrder.OrderIsPaid != true)
             {
@@ -231,13 +231,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the Order Creaction Date
             if (theOrder.OrderCreationDate != Convert.ToDateTime("24/07/2000"))
             {
@@ -253,13 +253,13 @@ namespace Testing2
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //Boolean variable to store the result of the search
-            Boolean found = false;
+            Boolean Found = false;
             //Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //creates some test data to use with the method
             Int32 OrderId = 21;
             //invoke the method
-            found = theOrder.Find(OrderId);
+            Found = theOrder.Find(OrderId);
             //check the Order Creaction Date
             if (theOrder.OrderName != "Gloria Yes")
             {
