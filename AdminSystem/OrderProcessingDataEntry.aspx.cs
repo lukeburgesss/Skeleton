@@ -105,7 +105,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             }
             
             //redirect back to this listpage
-            Response.Redirect("OrderProcessing.aspx");
+            Response.Redirect("OrderProcessingList.aspx");
 
         }
         else
@@ -146,5 +146,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
            
 
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+
     }
 }

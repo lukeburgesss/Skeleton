@@ -43,7 +43,7 @@
         <asp:Label ID="lblError" runat="server" Text="[lblError] "></asp:Label>
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK " />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel " />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel " OnClick="btnCancel_Click" />
     </form>
 </body>
 </html>

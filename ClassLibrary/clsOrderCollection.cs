@@ -17,7 +17,7 @@ namespace ClassLibrary
             //object for data connection 
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
+            DB.Execute("sproc_tblOrders_SelectAll");
             //populate the array list with the data table 
             PopulateArray(DB);
         }
@@ -78,7 +78,7 @@ namespace ClassLibrary
             DB.AddParameter("@OrderCreationDate", mThisOrder.OrderCreationDate);
             DB.AddParameter("@OrderName", mThisOrder.OrderName);
             //execute the query returning the prymary key
-            return DB.Execute("sproc_tblOrder_Insert");
+            return DB.Execute("sproc_tblOrders_Insert");
         }
 
         public void Update()
@@ -94,7 +94,7 @@ namespace ClassLibrary
             DB.AddParameter("@OrderCreationDate", mThisOrder.OrderCreationDate);
             DB.AddParameter("@OrderName", mThisOrder.OrderName);
             //execute the query returning the prymary key
-            DB.Execute("sproc_tblOrder_Insert");
+            DB.Execute("sproc_tblOrders_Update");
 
         }
 
@@ -106,7 +106,7 @@ namespace ClassLibrary
             //set parameters or stored procedure
             DB.AddParameter("@OrderId", mThisOrder.OrderId);
             //execute stored procedure
-            DB.Execute("sproc_tblOrder_Delete");
+            DB.Execute("sproc_tblOrders_Delete");
         }
 
         public void ReportByOrderName(string OrderName)
@@ -117,7 +117,7 @@ namespace ClassLibrary
             //send the postcode parameter to the database 
             DB.AddParameter("@OrderId", OrderName);
             //execute the stored procedure 
-            DB.Execute("sproc_tblOrder_FilterByOrderName");
+            DB.Execute("sproc_tblOrders_FilterByOrderName");
             //populate the array list with the data table 
             PopulateArray(DB);
         }
