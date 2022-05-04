@@ -125,7 +125,7 @@ namespace ClassLibrary
             //add the parameter for the address no to search for
             DB.AddParameter("@OrderId", OrderId);
             //execute the stored procedure
-            DB.Execute("sproc_tblOrder_FilterByOrderId");
+            DB.Execute("sproc_tblOrders_FilterByOrderId");
             //if one record is found (there should be either one or zero!)
             if (DB.Count == 1)
             {
