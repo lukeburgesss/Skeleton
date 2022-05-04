@@ -17,7 +17,7 @@ namespace Testing2
             Assert.IsNotNull(AllOrders);
         }
 
-        public void OrderLisrOK()
+        public void OrderListOK()
         {
             //create an instance of the class we want to create
             clsOrderCollection AllOrders = new clsOrderCollection();
