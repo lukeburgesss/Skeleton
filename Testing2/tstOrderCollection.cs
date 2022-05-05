@@ -30,7 +30,7 @@ namespace Testing2
             //set its properties
             TestItem.OrderIsPaid = true;
             TestItem.OrderName = "gloria";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 14;
             TestItem.ProductID = 2;
             TestItem.OrderId = 1;
@@ -52,7 +52,7 @@ namespace Testing2
             //set the properties
             TestOrders.OrderIsPaid = true;
             TestOrders.OrderName = "gloria";
-            TestOrders.OrderCreationDate = DateTime.Now.Date;
+            TestOrders.OrderCreationData = DateTime.Now.Date;
             TestOrders.TotalProduct = 14;
             TestOrders.ProductID = 2;
             TestOrders.OrderId = 1;
@@ -75,7 +75,7 @@ namespace Testing2
             //set its properties
             TestItem.OrderIsPaid = true;
             TestItem.OrderName = "gloria";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 14;
             TestItem.ProductID = 2;
             TestItem.OrderId = 1;
@@ -100,7 +100,7 @@ namespace Testing2
             //set its properties
             TestItem.OrderIsPaid = true;
             TestItem.OrderName = "gloria";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 14;
             TestItem.ProductID = 2;
             TestItem.OrderId = 1;
@@ -128,7 +128,7 @@ namespace Testing2
             //set its properties
             TestItem.OrderIsPaid = true;
             TestItem.OrderName = "gloria";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 14;
             TestItem.ProductID = 2;
             TestItem.OrderId = 1;
@@ -141,7 +141,7 @@ namespace Testing2
             //modify the test data 
             TestItem.OrderIsPaid = false;
             TestItem.OrderName = "benta";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 4;
             TestItem.ProductID = 3;
             TestItem.OrderId = 5;
@@ -169,7 +169,7 @@ namespace Testing2
             //set its properties
             TestItem.OrderIsPaid = true;
             TestItem.OrderName = "gloria";
-            TestItem.OrderCreationDate = DateTime.Now.Date;
+            TestItem.OrderCreationData = DateTime.Now.Date;
             TestItem.TotalProduct = 14;
             TestItem.ProductID = 2;
             TestItem.OrderId = 1;

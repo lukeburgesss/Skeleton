@@ -30,8 +30,8 @@
         <asp:CheckBox ID="chkOrderIsPaid" runat="server" Text="Order Is Paid" />
         <br />
         <br />
-        <asp:Label ID="lblOrderCreationDate" runat="server" Text="Order Creaction Date "></asp:Label>
-        <asp:TextBox ID="txtOrderCreationDate" runat="server"></asp:TextBox>
+        <asp:Label ID="lblOrderCreationData" runat="server" Text="Order Creaction Data"></asp:Label>
+        <asp:TextBox ID="txtOrderCreationData" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />

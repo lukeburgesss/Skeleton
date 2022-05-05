@@ -13,7 +13,7 @@ namespace Testing2
         //good test data 
         //create some test data to pass the method
         string OrderName = "Gloria Lubwimi";
-        string OrderCreationDate = DateTime.Now.Date.ToString();
+        string OrderCreationData = DateTime.Now.Date.ToString();
         
 
 
@@ -89,16 +89,16 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void OrderCreationDateOK()
+        public void OrderCreationDataOK()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //create some test data to assign the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            theOrder.OrderCreationDate = TestData;
+            theOrder.OrderCreationData = TestData;
             //test to see that the two are equal
-            Assert.AreEqual(theOrder.OrderCreationDate, TestData);
+            Assert.AreEqual(theOrder.OrderCreationData, TestData);
         }
 
         [TestMethod]
@@ -226,7 +226,7 @@ namespace Testing2
         }
         //klar
         [TestMethod]
-        public void TestOrderCreactionDateFound()
+        public void TestOrderCreationDataFound()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -239,7 +239,7 @@ namespace Testing2
             //invoke the method
             Found = theOrder.Find(OrderId);
             //check the Order Creaction Date
-            if (theOrder.OrderCreationDate != Convert.ToDateTime("16/09/2015"))
+            if (theOrder.OrderCreationData != Convert.ToDateTime("16/09/2015"))
             {
                 OK = false;
             }
@@ -282,7 +282,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see tat the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -299,7 +299,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = ""; //this should trigger an error 
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -314,7 +314,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = "a"; //this should be ok
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -329,7 +329,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = "aa"; //this should be ok
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -344,7 +344,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = String.Concat(Enumerable.Repeat("a", 99)); //should pass
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -359,7 +359,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = String.Concat(Enumerable.Repeat("a", 100)); //should pass
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -374,7 +374,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = String.Concat(Enumerable.Repeat("a", 101)); //should trigger an error
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -389,7 +389,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = String.Concat(Enumerable.Repeat("a", 50)); //should pass
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -404,7 +404,7 @@ namespace Testing2
             //create some test data to pass to the method 
             string OrderName = String.Concat(Enumerable.Repeat("a", 500)); //this should fail
             //invok the method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -412,7 +412,7 @@ namespace Testing2
         //---- OrderCreationDate ----
 
         [TestMethod]
-        public void OrderCreationDateExtremeMin()
+        public void OrderCreationDataExtremeMin()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -423,17 +423,17 @@ namespace Testing2
             //set the date to todays date
             TestData = DateTime.Now.Date;
             //change data to extreme min
-            TestData = TestData.AddYears(-100);
+            TestData = TestData.AddYears(-500);
             //convert the data to a string variable
-            string OrderCreationDate = TestData.ToString();
+            string OrderCreationData = TestData.ToString();
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to tee the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void OrderCreationDateMinLessOne()
+        public void OrderCreationDataMinLessOne()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -444,17 +444,17 @@ namespace Testing2
             //set the date to todays date
             TestData = DateTime.Now.Date;
             //change data to extreme min
-            TestData = TestData.AddDays(-1);
+            TestData = TestData.AddYears(-100).AddDays(-1);
             //convert the data to a string variable
-            string OrderCreationDate = TestData.ToString();
+            string OrderCreationData = TestData.ToString();
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to tee the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void OrderCreationDateMin()
+        public void OrderCreationDataMin()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -464,16 +464,17 @@ namespace Testing2
             DateTime TestData;
             //set the date to todays date
             TestData = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 year
             //convert the data to a string variable
-            string OrderCreationDate = TestData.ToString();
+            string OrderCreationData = TestData.ToString();
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to tee the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
-        public void OrderCreationDateMinPlusOne()
+        public void OrderCreationDataMinPlusOne()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -486,15 +487,15 @@ namespace Testing2
             //change data to extreme min
             TestData = TestData.AddDays(1);
             //convert the data to a string variable
-            string OrderCreationDate = TestData.ToString();
+            string OrderCreationData = TestData.ToString();
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to tee the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
-        public void OrderCreationDateExtremeMax()
+        public void OrderCreationDataExtremeMax()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
@@ -507,9 +508,9 @@ namespace Testing2
             //change data to extreme min
             TestData = TestData.AddYears(100);
             //convert the data to a string variable
-            string OrderCreationDate = TestData.ToString();
+            string OrderCreationData = TestData.ToString();
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to tee the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -518,16 +519,16 @@ namespace Testing2
 
 
         [TestMethod]
-        public void OrderCreationDateInvalidData()
+        public void OrderCreationDataInvalidData()
         {
             //creates an instance of the class we want to create
             clsOrder theOrder = new clsOrder();
             //string variable to store any error message
             String Error = "";
             //set the data added to not be a date
-            string OrderCreationDate = "This is not a data";
+            string OrderCreationData = "This is not a data";
             //invoke method
-            Error = theOrder.Valid(OrderName, OrderCreationDate);
+            Error = theOrder.Valid(OrderName, OrderCreationData);
             //test to see if result is correct
             Assert.AreNotEqual(Error, "");
         }

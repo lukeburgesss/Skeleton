@@ -30,7 +30,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(theOrder.OrderIsPaid);
 
         //display the Order ID on the page 
-        Response.Write(theOrder.OrderCreationDate);
+        Response.Write(theOrder.OrderCreationData);
 
 
         //display the Order ID on the page 

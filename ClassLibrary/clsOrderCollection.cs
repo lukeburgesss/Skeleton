@@ -72,10 +72,10 @@ namespace ClassLibrary
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@ProductId", mThisOrder.ProductID);
             DB.AddParameter("@TotalProduct", mThisOrder.TotalProduct);
             DB.AddParameter("@OrderIsPaid", mThisOrder.OrderIsPaid);
-            DB.AddParameter("@OrderCreationDate", mThisOrder.OrderCreationDate);
+            DB.AddParameter("@OrderCreationData", mThisOrder.OrderCreationData);
             DB.AddParameter("@OrderName", mThisOrder.OrderName);
             //execute the query returning the prymary key
             return DB.Execute("sproc_tblOrders_Insert");
@@ -88,10 +88,10 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
             DB.AddParameter("@OrderId", mThisOrder.OrderId);
-            DB.AddParameter("@ProductID", mThisOrder.ProductID);
+            DB.AddParameter("@ProductId", mThisOrder.ProductID);
             DB.AddParameter("@TotalProduct", mThisOrder.TotalProduct);
             DB.AddParameter("@OrderIsPaid", mThisOrder.OrderIsPaid);
-            DB.AddParameter("@OrderCreationDate", mThisOrder.OrderCreationDate);
+            DB.AddParameter("@OrderCreationData", mThisOrder.OrderCreationData);
             DB.AddParameter("@OrderName", mThisOrder.OrderName);
             //execute the query returning the prymary key
             DB.Execute("sproc_tblOrders_Update");
@@ -144,7 +144,7 @@ namespace ClassLibrary
                 TheOrder.ProductID = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductID"]);
                 TheOrder.TotalProduct = Convert.ToInt32(DB.DataTable.Rows[Index]["TotalProduct"]);
                 TheOrder.OrderIsPaid = Convert.ToBoolean(DB.DataTable.Rows[Index]["OrderIsPaid"]);
-                TheOrder.OrderCreationDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderCreationDate"]);
+                TheOrder.OrderCreationData = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderCreationData"]);
                 TheOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
                 //add the record to the private data mamber 
                 mOrderList.Add(TheOrder);
