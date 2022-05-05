@@ -239,7 +239,7 @@ namespace Testing2
             //invoke the method
             Found = theOrder.Find(OrderId);
             //check the Order Creaction Date
-            if (theOrder.OrderCreationDate != Convert.ToDateTime("24/07/2000"))
+            if (theOrder.OrderCreationDate != Convert.ToDateTime("16/09/2015"))
             {
                 OK = false;
             }
