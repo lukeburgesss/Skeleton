@@ -82,20 +82,20 @@ namespace ClassLibrary
         }
 
 
-        private DateTime mOrderCreationDate;
-        public DateTime OrderCreationDate
+        private DateTime mOrderCreationData;
+        public DateTime OrderCreationData
         {
             get
             {
 
                 //this line of code sends data out the property
-                return mOrderCreationDate;
+                return mOrderCreationData;
 
             }
             set
             {
                 //this line of code allows data into the property
-                mOrderCreationDate = value;
+                mOrderCreationData = value;
             }
         }
 
@@ -119,7 +119,39 @@ namespace ClassLibrary
 
         //------week 24----------
 
-        public string Valid(string orderName, string orderCreationDate)
+       
+
+
+        //week 23
+        public bool Find(int OrderId)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search for
+            DB.AddParameter("@OrderId", OrderId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_FilterByOrderId");
+
+            if (DB.Count == 1)
+            {
+                mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mTotalProduct = Convert.ToInt32(DB.DataTable.Rows[0]["TotalProduct"]);
+                mOrderIsPaid = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderIsPaid"]);
+               mOrderCreationData = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderCreationData"]);
+                mOrderName = Convert.ToString(DB.DataTable.Rows[0]["OrderName"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+
+        }
+        public string Valid(string orderName, string orderCreationData)
         {
             //create a string variable to store the error
             String Error = "";
@@ -141,12 +173,13 @@ namespace ClassLibrary
             try
             {
                 //copy the orderCreationDate value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(orderCreationDate);
-                if (DateTemp < DateTime.Now.Date)
-
-
+                DateTemp = Convert.ToDateTime(orderCreationData);
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
                     //record the error
                     Error = Error + "The date cannot be in the past : ";
+                }
+
 
 
                 //check to see if the date is greater than today's date
@@ -164,21 +197,6 @@ namespace ClassLibrary
             }
 
             return Error;
-        }
-
-
-        //week 23
-        public bool Find(int orderId)
-        {
-            mOrderId = 21;
-            mOrderCreationDate = Convert.ToDateTime("16/09/2015");
-            mProductID = 21;
-            mTotalProduct = 21;
-            mOrderIsPaid = true;
-            mOrderName = "Gloria Yes";
-
-
-            return true;
         }
     }
 }

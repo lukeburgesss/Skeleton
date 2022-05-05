@@ -38,7 +38,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtTotalProduct.Text = OrderBook.ThisOrder.TotalProduct.ToString();
         txtTotalProduct.Text = OrderBook.ThisOrder.TotalProduct.ToString();
         chkOrderIsPaid.Checked = OrderBook.ThisOrder.OrderIsPaid;
-        txtOrderCreationDate.Text = OrderBook.ThisOrder.OrderCreationDate.ToString();
+        txtOrderCreationData.Text = OrderBook.ThisOrder.OrderCreationData.ToString();
         txtOrderName.Text = OrderBook.ThisOrder.OrderName;
         
     }
@@ -56,13 +56,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //capture the OrderIsPaid
        //theOrder.OrderIsPaid = Convert.ToBoolean(chkOrderIsPaid.Checked);
         //capture the OrderIsPaid
-       string OrderCreationDate = txtOrderCreationDate.Text;
+       string OrderCreationData = txtOrderCreationData.Text;
         //capture the OrderName
        string OrderName = txtOrderName.Text;
         //variable to store any error messages 
         string Error = "";
         //validate the data 
-        Error = theOrder.Valid(OrderName, OrderCreationDate);
+        Error = theOrder.Valid(OrderName, OrderCreationData);
         if (Error == "")
         {
             
@@ -73,7 +73,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the Total Product 
             theOrder.TotalProduct = Convert.ToInt32(TotalProduct);
             //capture the Order Creation Data
-            theOrder.OrderCreationDate = Convert.ToDateTime(OrderCreationDate);
+            theOrder.OrderCreationData = Convert.ToDateTime(OrderCreationData);
             //capture the Order Name 
             theOrder.OrderName = OrderName;
             //capture the OrderIsPaid
@@ -140,7 +140,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtProductID.Text = theOrder.ProductID.ToString();
             txtTotalProduct.Text = theOrder.TotalProduct.ToString();
            // txtOrderIsPaid.Text = theOrder.OrderIsPaid.ToString();
-            txtOrderCreationDate.Text = theOrder.OrderCreationDate.ToString();
+            txtOrderCreationData.Text = theOrder.OrderCreationData.ToString();
             txtOrderName.Text = theOrder.OrderName;
             
            
