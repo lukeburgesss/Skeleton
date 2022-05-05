@@ -115,7 +115,7 @@ namespace ClassLibrary
             //connect to the database 
             clsDataConnection DB = new clsDataConnection();
             //send the postcode parameter to the database 
-            DB.AddParameter("@OrderId", OrderName);
+            DB.AddParameter("@OrderName", OrderName);
             //execute the stored procedure 
             DB.Execute("sproc_tblOrders_FilterByOrderName");
             //populate the array list with the data table 
